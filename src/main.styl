@@ -1,0 +1,181 @@
+.loading {
+  align-items: center;
+  display: flex;
+  font-size: 2em;
+  height: 12em;
+  justify-content: center;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1em 1em 0 0;
+
+  .accordion-header svg {
+    width: 1em;
+    margin-right: 0.5em;
+  }
+
+  .filters,
+  .sorting {
+    margin-bottom: 1em;
+    margin-left: 1em;
+    min-width: 25em;
+    width: calc(50% - 1em);
+
+    .badge {
+      margin-left: 0.3em;
+    }
+  }
+
+  .filters {
+    .list-group {
+      display: grid;
+      grid-template-columns: max-content auto;
+    }
+
+    li.list-group-item {
+      display: contents;
+      padding: 0.5em;
+    }
+
+    label,
+    input,
+    .select {
+      margin: 0.3em;
+    }
+
+    label {
+      align-self: center;
+    }
+
+    input {
+      border: solid 1px hsl(0, 0%, 80%);
+      border-radius: 4px;
+      padding: 4px 8px;
+    }
+  }
+
+  .sorting {
+    .accordion-body {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .list-group-item {
+      border: none;
+      display: flex;
+
+      .select {
+        flex-grow: 2;
+        margin-right: 0.5em;
+      }
+
+      button {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding: 0.5em;
+
+        svg {
+          width: 1em;
+        }
+      }
+    }
+  }
+}
+
+.dogs {
+  .card-wrapper {
+    display: flex;
+    margin-bottom: 1em;
+  }
+
+  .card {
+    display: flex;
+    min-width: 14em;
+    max-width: 20em;
+    position: relative;
+
+    // TODO: hover styles
+    .mark-seen-button,
+    .toggle-favorite-button {
+      border: none;
+      border-radius: 50%;
+      position: absolute;
+      top: 0.3em;
+    }
+
+    .mark-seen-button {
+      background: none;
+      display: none;
+      left: 0.3em;
+      padding: 0;
+      width: 2.9em;
+      height: 2.9em;
+
+      .new-badge {
+        color: var(--bs-green);
+      }
+
+      .new-text {
+        color: white;
+      }
+    }
+
+    &.dog-is-new .mark-seen-button {
+      display: block;
+    }
+
+    .toggle-favorite-button {
+      background: rgba(255, 255, 255, 0.7);
+      padding: 0.4em;
+      right: 0.3em;
+      width: 2.5em;
+      height: 2.5em;
+
+      .heart-stroke {
+        color: #333;
+      }
+
+      .heart-fill {
+        color: transparent
+      }
+    }
+
+    &.dog-is-favorite .toggle-favorite-button {
+      background: white;
+
+      .heart-stroke,
+      .heart-fill {
+        color: rgb(192, 24, 111);
+      }
+    }
+
+    h5 {
+      padding: 0.4em 0.8em 0;
+    }
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+
+    svg {
+      flex-shrink: 0;
+      margin-right: 0.3em;
+      width: 1em;
+    }
+  }
+
+  li.list-group-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .spacer {
+    flex-grow: 2;
+  }
+}

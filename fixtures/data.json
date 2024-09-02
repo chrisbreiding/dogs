@@ -1,0 +1,2025 @@
+{
+  "results": [
+    {
+      "id": 4862,
+      "name": "Agent F",
+      "alsoKnownAs": "",
+      "headline": "Corgi + Poodle = Adorable ",
+      "primaryBreed": {
+        "id": 69,
+        "value": "Corgi"
+      },
+      "secondaryBreed": {
+        "id": 200,
+        "value": "Poodle"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-27T04:00:00Z",
+      "statusUpdated": "2024-08-28T00:55:45.0453466Z"
+    },
+    {
+      "id": 4860,
+      "name": "Agent J",
+      "alsoKnownAs": "",
+      "headline": "Corgi + Poodle = Adorable ",
+      "primaryBreed": {
+        "id": 69,
+        "value": "Corgi"
+      },
+      "secondaryBreed": {
+        "id": 200,
+        "value": "Poodle"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-27T04:00:00Z",
+      "statusUpdated": "2024-08-28T00:57:59.2897732Z"
+    },
+    {
+      "id": 4861,
+      "name": "Agent K",
+      "alsoKnownAs": "",
+      "headline": "Corgi + Poodle = Adorable ",
+      "primaryBreed": {
+        "id": 69,
+        "value": "Corgi"
+      },
+      "secondaryBreed": {
+        "id": 200,
+        "value": "Poodle"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-27T04:00:00Z",
+      "statusUpdated": "2024-08-28T00:59:12.4229153Z"
+    },
+    {
+      "id": 4859,
+      "name": "Agent M",
+      "alsoKnownAs": "",
+      "headline": "What an adorable mix !",
+      "primaryBreed": {
+        "id": 69,
+        "value": "Corgi"
+      },
+      "secondaryBreed": {
+        "id": 200,
+        "value": "Poodle"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-27T04:00:00Z",
+      "statusUpdated": "2024-08-28T01:00:35.0857307Z"
+    },
+    {
+      "id": 4831,
+      "name": "Alex",
+      "alsoKnownAs": "",
+      "headline": "A happy, playful girl",
+      "primaryBreed": {
+        "id": 73,
+        "value": "Cavalier King Charles Spaniel"
+      },
+      "secondaryBreed": {
+        "id": 49,
+        "value": "Border Collie"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-22T04:00:00Z",
+      "statusUpdated": "2024-08-29T22:32:35.0667192Z"
+    },
+    {
+      "id": 3231,
+      "name": "Alexander",
+      "alsoKnownAs": "",
+      "headline": "Click on me to learn more and apply for adoption!",
+      "primaryBreed": {
+        "id": 19,
+        "value": "Australian Shepherd"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 4,
+        "value": "Adult (5 - 9 Years)"
+      },
+      "foster": {
+        "id": 24,
+        "value": "Barbara Moyer"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 3,
+        "value": "> 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2016-03-04T05:00:00Z",
+      "statusUpdated": "2024-01-05T00:40:52.1748128Z"
+    },
+    {
+      "id": 4700,
+      "name": "Alina",
+      "alsoKnownAs": "",
+      "headline": "Easy going cutie ",
+      "primaryBreed": {
+        "id": 199,
+        "value": "Pomeranian"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 4,
+        "value": "Adult (5 - 9 Years)"
+      },
+      "foster": {
+        "id": 159,
+        "value": "Nichole Moyer (Nikki Moyer)"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-07-25T04:00:00Z",
+      "statusUpdated": "2024-07-26T02:54:08.3752621Z"
+    },
+    {
+      "id": 4768,
+      "name": "Allie",
+      "alsoKnownAs": "",
+      "headline": "Allie is a 6 month old female Lab mix",
+      "primaryBreed": {
+        "id": 158,
+        "value": "Labrador Retriever"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 2,
+        "value": "Puppy (5 months - 2 Years)"
+      },
+      "foster": {
+        "id": 4176,
+        "value": "Katie (Winfree) & Todd Gallen"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-10T04:00:00Z",
+      "statusUpdated": "2024-08-11T22:21:58.6283805Z"
+    },
+    {
+      "id": 4572,
+      "name": "Alvin",
+      "alsoKnownAs": "",
+      "headline": "Little 3 year old poodle boy!",
+      "primaryBreed": {
+        "id": 200,
+        "value": "Poodle"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 3,
+        "value": "Youth (2 - 5 Years)"
+      },
+      "foster": {
+        "id": 141,
+        "value": "MaryBeth DiNunzio"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-06-13T04:00:00Z",
+      "statusUpdated": "2024-06-20T12:14:53.5453177Z"
+    },
+    {
+      "id": 4684,
+      "name": "Amarilla",
+      "alsoKnownAs": "Juno",
+      "headline": "Amarilla is a gem!",
+      "primaryBreed": {
+        "id": 117,
+        "value": "German Shepherd"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 2,
+        "value": "Puppy (5 months - 2 Years)"
+      },
+      "foster": {
+        "id": 27,
+        "value": "Bethany Schaeffer (Bethany Lynn)"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": null,
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-07-22T04:00:00Z",
+      "statusUpdated": "2024-07-30T21:54:17.7089703Z"
+    },
+    {
+      "id": 4697,
+      "name": "Angel",
+      "alsoKnownAs": "",
+      "headline": "I will be your Guardian ANGEL. ",
+      "primaryBreed": {
+        "id": 166,
+        "value": "Maltese"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 4,
+        "value": "Adult (5 - 9 Years)"
+      },
+      "foster": {
+        "id": 109,
+        "value": "Karen Devine"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-07-25T04:00:00Z",
+      "statusUpdated": "2024-08-09T14:26:18.5247301Z"
+    },
+    {
+      "id": 4702,
+      "name": "Arabella",
+      "alsoKnownAs": "",
+      "headline": "9 yr old female ",
+      "primaryBreed": {
+        "id": 199,
+        "value": "Pomeranian"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 5,
+        "value": "Senior (9+ Years)"
+      },
+      "foster": {
+        "id": 159,
+        "value": "Nichole Moyer (Nikki Moyer)"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-07-25T04:00:00Z",
+      "statusUpdated": "2024-07-26T02:45:16.2041738Z"
+    },
+    {
+      "id": 4754,
+      "name": "Autumn",
+      "alsoKnownAs": "",
+      "headline": "This girl gives big hugs ",
+      "primaryBreed": {
+        "id": 225,
+        "value": "Saint Bernard"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 4,
+        "value": "Adult (5 - 9 Years)"
+      },
+      "foster": {
+        "id": 198,
+        "value": "Sue Sheridan (Sue Mimi)"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 3,
+        "value": "> 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-08T04:00:00Z",
+      "statusUpdated": "2024-08-27T19:50:02.8760396Z"
+    },
+    {
+      "id": 4720,
+      "name": "Baby (Tiny litter)",
+      "alsoKnownAs": "",
+      "headline": "Playful, Affectionate, Loyal Companion",
+      "primaryBreed": {
+        "id": 158,
+        "value": "Labrador Retriever"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 10,
+        "value": "Puppy Team"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-07-27T04:00:00Z",
+      "statusUpdated": "2024-07-28T21:05:29.5380749Z"
+    },
+    {
+      "id": 4837,
+      "name": "Bader",
+      "alsoKnownAs": "Nala",
+      "headline": "Jug/Pom mix ready for a fun loving home ",
+      "primaryBreed": {
+        "id": 210,
+        "value": "Pug"
+      },
+      "secondaryBreed": {
+        "id": 199,
+        "value": "Pomeranian"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 2,
+        "value": "Puppy (5 months - 2 Years)"
+      },
+      "foster": {
+        "id": 3917,
+        "value": "Angela Bleemer"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": null,
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-22T04:00:00Z",
+      "statusUpdated": "2024-08-25T15:58:55.5574534Z"
+    },
+    {
+      "id": 4849,
+      "name": "Bambi (Bx3 litter)",
+      "alsoKnownAs": "",
+      "headline": "Bambi is a sweet female puppy",
+      "primaryBreed": {
+        "id": 17,
+        "value": "Cattle Dog"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 10,
+        "value": "Puppy Team"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-24T04:00:00Z",
+      "statusUpdated": "2024-08-24T20:37:47.804309Z"
+    },
+    {
+      "id": 4848,
+      "name": "Bamboo (Bx3 litter)",
+      "alsoKnownAs": "",
+      "headline": "Bamboo is a sweet puppy",
+      "primaryBreed": {
+        "id": 17,
+        "value": "Cattle Dog"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 10,
+        "value": "Puppy Team"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-24T04:00:00Z",
+      "statusUpdated": "2024-08-24T20:38:07.7794961Z"
+    },
+    {
+      "id": 4788,
+      "name": "Barry ",
+      "alsoKnownAs": "",
+      "headline": "What a fun cute adorable guy!",
+      "primaryBreed": {
+        "id": 49,
+        "value": "Border Collie"
+      },
+      "secondaryBreed": {
+        "id": 118,
+        "value": "German Shorthaired Pointer"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-13T04:00:00Z",
+      "statusUpdated": "2024-08-14T02:09:00.7122302Z"
+    },
+    {
+      "id": 4828,
+      "name": "Bastian",
+      "alsoKnownAs": "",
+      "headline": "A tiny little dreamboat ",
+      "primaryBreed": {
+        "id": 308,
+        "value": "Poodle - mini / toy"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 181,
+        "value": "Ryan Hardie (Ryan Kathleen)"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-22T04:00:00Z",
+      "statusUpdated": "2024-08-23T03:21:57.5100439Z"
+    },
+    {
+      "id": 4789,
+      "name": "Baxter",
+      "alsoKnownAs": "",
+      "headline": "What an adorable fun pup!",
+      "primaryBreed": {
+        "id": 49,
+        "value": "Border Collie"
+      },
+      "secondaryBreed": {
+        "id": 118,
+        "value": "German Shorthaired Pointer"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-13T04:00:00Z",
+      "statusUpdated": "2024-08-16T00:25:05.5038188Z"
+    },
+    {
+      "id": 4790,
+      "name": "Benny",
+      "alsoKnownAs": "",
+      "headline": "Great partner for outdoor activities ",
+      "primaryBreed": {
+        "id": 49,
+        "value": "Border Collie"
+      },
+      "secondaryBreed": {
+        "id": 118,
+        "value": "German Shorthaired Pointer"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-13T04:00:00Z",
+      "statusUpdated": "2024-08-19T20:59:33.0424012Z"
+    },
+    {
+      "id": 4839,
+      "name": "Bert",
+      "alsoKnownAs": "",
+      "headline": "Bert is a 2 year old male Lab mix.",
+      "primaryBreed": {
+        "id": 158,
+        "value": "Labrador Retriever"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 3,
+        "value": "Youth (2 - 5 Years)"
+      },
+      "foster": {
+        "id": 114,
+        "value": "Katie Renz-Marger"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-24T04:00:00Z",
+      "statusUpdated": "2024-08-26T21:00:24.0996526Z"
+    },
+    {
+      "id": 4463,
+      "name": "Betty",
+      "alsoKnownAs": "",
+      "headline": "Mill mom has escaped to a happier life ",
+      "primaryBreed": {
+        "id": 199,
+        "value": "Pomeranian"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 4,
+        "value": "Adult (5 - 9 Years)"
+      },
+      "foster": {
+        "id": 40,
+        "value": "Christine Emma"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-05-14T04:00:00Z",
+      "statusUpdated": "2024-07-01T22:14:54.5801087Z"
+    },
+    {
+      "id": 4791,
+      "name": "Betty",
+      "alsoKnownAs": "",
+      "headline": "beautiful happy girl!",
+      "primaryBreed": {
+        "id": 49,
+        "value": "Border Collie"
+      },
+      "secondaryBreed": {
+        "id": 118,
+        "value": "German Shorthaired Pointer"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-13T04:00:00Z",
+      "statusUpdated": "2024-08-14T02:04:29.9220697Z"
+    },
+    {
+      "id": 4464,
+      "name": "Blake",
+      "alsoKnownAs": "",
+      "headline": "Blake is a very sweet pup",
+      "primaryBreed": {
+        "id": 199,
+        "value": "Pomeranian"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 5,
+        "value": "Senior (9+ Years)"
+      },
+      "foster": {
+        "id": 40,
+        "value": "Christine Emma"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-05-14T04:00:00Z",
+      "statusUpdated": "2024-06-19T23:51:15.9279185Z"
+    },
+    {
+      "id": 4709,
+      "name": "Boots",
+      "alsoKnownAs": "",
+      "headline": "Boots is a 1 year old male Lab mix",
+      "primaryBreed": {
+        "id": 158,
+        "value": "Labrador Retriever"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 2,
+        "value": "Puppy (5 months - 2 Years)"
+      },
+      "foster": {
+        "id": 8506,
+        "value": "Evan & Jessica Dortheimer"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-07-27T04:00:00Z",
+      "statusUpdated": "2024-07-27T16:03:06.7002841Z"
+    },
+    {
+      "id": 4787,
+      "name": "Boris",
+      "alsoKnownAs": "",
+      "headline": "Great partner for outdoor activities ",
+      "primaryBreed": {
+        "id": 49,
+        "value": "Border Collie"
+      },
+      "secondaryBreed": {
+        "id": 118,
+        "value": "German Shorthaired Pointer"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-13T04:00:00Z",
+      "statusUpdated": "2024-08-14T01:59:16.3888468Z"
+    },
+    {
+      "id": 4685,
+      "name": "Brenda",
+      "alsoKnownAs": "Layla",
+      "headline": "Brenda is very friendly",
+      "primaryBreed": {
+        "id": 117,
+        "value": "German Shepherd"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 3,
+        "value": "Youth (2 - 5 Years)"
+      },
+      "foster": {
+        "id": 253,
+        "value": "Jim Grasmeder"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": null,
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-07-22T04:00:00Z",
+      "statusUpdated": "2024-07-31T22:04:36.0950203Z"
+    },
+    {
+      "id": 4847,
+      "name": "Brock (Bx3 litter)",
+      "alsoKnownAs": "",
+      "headline": "Brock is a sweet male puppy",
+      "primaryBreed": {
+        "id": 17,
+        "value": "Cattle Dog"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 10,
+        "value": "Puppy Team"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-24T04:00:00Z",
+      "statusUpdated": "2024-08-24T20:38:43.0205014Z"
+    },
+    {
+      "id": 4449,
+      "name": "Brownie (Chi mix)",
+      "alsoKnownAs": "",
+      "headline": "Brownie is a treat!",
+      "primaryBreed": {
+        "id": 77,
+        "value": "Chihuahua"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 3,
+        "value": "Youth (2 - 5 Years)"
+      },
+      "foster": {
+        "id": 145,
+        "value": "Megan Weaver"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-05-11T04:00:00Z",
+      "statusUpdated": "2024-05-25T01:12:15.0375429Z"
+    },
+    {
+      "id": 4707,
+      "name": "Bubbles (Terrier mix)",
+      "alsoKnownAs": "",
+      "headline": "Bubbles is a 1 year old female Terrier mix",
+      "primaryBreed": {
+        "id": 296,
+        "value": "Terrier"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 2,
+        "value": "Puppy (5 months - 2 Years)"
+      },
+      "foster": {
+        "id": 124,
+        "value": "Laura Leypoldt"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-07-27T04:00:00Z",
+      "statusUpdated": "2024-08-02T02:29:44.8818278Z"
+    },
+    {
+      "id": 4677,
+      "name": "Bullet",
+      "alsoKnownAs": "",
+      "headline": "Bullet is fun!",
+      "primaryBreed": {
+        "id": 158,
+        "value": "Labrador Retriever"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 3,
+        "value": "Youth (2 - 5 Years)"
+      },
+      "foster": {
+        "id": 188,
+        "value": "Sean & Carly Stanton"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 3,
+        "value": "> 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-07-13T04:00:00Z",
+      "statusUpdated": "2024-07-14T17:09:56.3654746Z"
+    },
+    {
+      "id": 4795,
+      "name": "Butch ",
+      "alsoKnownAs": "",
+      "headline": "5-1/2  month old Rottie boy",
+      "primaryBreed": {
+        "id": 221,
+        "value": "Rottweiler"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 2,
+        "value": "Puppy (5 months - 2 Years)"
+      },
+      "foster": {
+        "id": 215,
+        "value": "Wendy Grayauskie"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-13T04:00:00Z",
+      "statusUpdated": "2024-08-14T21:52:11.3044161Z"
+    },
+    {
+      "id": 4355,
+      "name": "Cammie",
+      "alsoKnownAs": "",
+      "headline": "Cammie is a 1.5 year old female Terrier mix",
+      "primaryBreed": {
+        "id": 296,
+        "value": "Terrier"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 2,
+        "value": "Puppy (5 months - 2 Years)"
+      },
+      "foster": {
+        "id": 120,
+        "value": "Kim Pierro"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-04-20T04:00:00Z",
+      "statusUpdated": "2024-04-17T12:39:08.0489564Z"
+    },
+    {
+      "id": 4827,
+      "name": "Candace",
+      "alsoKnownAs": "",
+      "headline": "Meet a Foodle !",
+      "primaryBreed": {
+        "id": 265,
+        "value": "Fox Terrier"
+      },
+      "secondaryBreed": {
+        "id": 200,
+        "value": "Poodle"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-22T04:00:00Z",
+      "statusUpdated": "2024-08-23T03:09:23.2494349Z"
+    },
+    {
+      "id": 4841,
+      "name": "Cassie",
+      "alsoKnownAs": "",
+      "headline": "Ready to meet your dream dog?",
+      "primaryBreed": {
+        "id": 296,
+        "value": "Terrier"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 2,
+        "value": "Puppy (5 months - 2 Years)"
+      },
+      "foster": {
+        "id": 45,
+        "value": "Damaris Montano"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-24T04:00:00Z",
+      "statusUpdated": "2024-08-26T12:15:00.4752852Z"
+    },
+    {
+      "id": 4825,
+      "name": "Chadwick",
+      "alsoKnownAs": "",
+      "headline": "Meet a Foodle !",
+      "primaryBreed": {
+        "id": 265,
+        "value": "Fox Terrier"
+      },
+      "secondaryBreed": {
+        "id": 200,
+        "value": "Poodle"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-22T04:00:00Z",
+      "statusUpdated": "2024-08-23T03:06:35.0067402Z"
+    },
+    {
+      "id": 4846,
+      "name": "Charlie",
+      "alsoKnownAs": "",
+      "headline": "Charlie is a gorgeous female pup",
+      "primaryBreed": {
+        "id": 127,
+        "value": "Great Pyrenees"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 3,
+        "value": "Youth (2 - 5 Years)"
+      },
+      "foster": {
+        "id": 198,
+        "value": "Sue Sheridan (Sue Mimi)"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 3,
+        "value": "> 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-24T04:00:00Z",
+      "statusUpdated": "2024-08-27T19:55:16.9485985Z"
+    },
+    {
+      "id": 4756,
+      "name": "Charlie Brown",
+      "alsoKnownAs": "",
+      "headline": "Charlie Brown is an 11 week old male Australian Shepherd mix.",
+      "primaryBreed": {
+        "id": 19,
+        "value": "Australian Shepherd"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 10,
+        "value": "Puppy Team"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-10T04:00:00Z",
+      "statusUpdated": "2024-08-09T13:18:59.8533788Z"
+    },
+    {
+      "id": 3894,
+      "name": "Chrissy",
+      "alsoKnownAs": "",
+      "headline": "Chrissy loves giving kisses",
+      "primaryBreed": {
+        "id": 296,
+        "value": "Terrier"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 2,
+        "value": "Puppy (5 months - 2 Years)"
+      },
+      "foster": {
+        "id": 3074,
+        "value": "Emily  Moll"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-01-13T05:00:00Z",
+      "statusUpdated": "2024-01-23T16:26:02.389451Z"
+    },
+    {
+      "id": 2829,
+      "name": "Cleveland",
+      "alsoKnownAs": "",
+      "headline": "Look at this handsome fella! Could you be his forever home ?",
+      "primaryBreed": {
+        "id": 158,
+        "value": "Labrador Retriever"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 5,
+        "value": "Senior (9+ Years)"
+      },
+      "foster": {
+        "id": 157,
+        "value": "Natalie Powell"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 3,
+        "value": "> 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2021-05-08T04:00:00Z",
+      "statusUpdated": "2023-11-05T23:58:43.4595285Z"
+    },
+    {
+      "id": 4430,
+      "name": "Copper",
+      "alsoKnownAs": "",
+      "headline": "Copper is a 13 month old male Retriever mix ",
+      "primaryBreed": {
+        "id": 185,
+        "value": "Retriever"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 2,
+        "value": "Puppy (5 months - 2 Years)"
+      },
+      "foster": {
+        "id": 157,
+        "value": "Natalie Powell"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-05-04T04:00:00Z",
+      "statusUpdated": "2024-05-08T10:58:03.9765046Z"
+    },
+    {
+      "id": 4826,
+      "name": "Creedence",
+      "alsoKnownAs": "",
+      "headline": "Meet a Foodle !",
+      "primaryBreed": {
+        "id": 265,
+        "value": "Fox Terrier"
+      },
+      "secondaryBreed": {
+        "id": 200,
+        "value": "Poodle"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 1,
+        "value": "< 20 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-22T04:00:00Z",
+      "statusUpdated": "2024-08-23T03:08:01.8147256Z"
+    },
+    {
+      "id": 4438,
+      "name": "Cruise",
+      "alsoKnownAs": "",
+      "headline": "Cruise is a dapper gentleman!",
+      "primaryBreed": {
+        "id": 297,
+        "value": "Hound"
+      },
+      "secondaryBreed": {
+        "id": 158,
+        "value": "Labrador Retriever"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 4,
+        "value": "Adult (5 - 9 Years)"
+      },
+      "foster": {
+        "id": 5501,
+        "value": "Alyssa (Ellen on FB) Bitting"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 3,
+        "value": "> 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-05-07T04:00:00Z",
+      "statusUpdated": "2024-05-22T21:24:25.636994Z"
+    },
+    {
+      "id": 2786,
+      "name": "Daisy (Bernese Mtn Dog)",
+      "alsoKnownAs": "",
+      "headline": "Beautiful Daisy here !",
+      "primaryBreed": {
+        "id": 39,
+        "value": "Bernese Mountain Dog"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 4,
+        "value": "Adult (5 - 9 Years)"
+      },
+      "foster": {
+        "id": 117,
+        "value": "Kelly Salone"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": null,
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2023-01-12T17:00:00Z",
+      "statusUpdated": "2023-10-18T02:13:37.353899Z"
+    },
+    {
+      "id": 4868,
+      "name": "Darby",
+      "alsoKnownAs": "",
+      "headline": "Darby is a darling 4 month old Silver Lab. ",
+      "primaryBreed": {
+        "id": 158,
+        "value": "Labrador Retriever"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-29T04:00:00Z",
+      "statusUpdated": "2024-08-30T02:15:36.6072528Z"
+    },
+    {
+      "id": 4767,
+      "name": "Darlin",
+      "alsoKnownAs": "",
+      "headline": "Darlin is a 2 year old female Hound mix",
+      "primaryBreed": {
+        "id": 297,
+        "value": "Hound"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 3,
+        "value": "Youth (2 - 5 Years)"
+      },
+      "foster": {
+        "id": 97,
+        "value": "Jin Niu"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-10T04:00:00Z",
+      "statusUpdated": "2024-08-13T13:44:27.3607027Z"
+    },
+    {
+      "id": 4711,
+      "name": "Declan",
+      "alsoKnownAs": "",
+      "headline": "Declan is a 1-2 year old male Lab mix.",
+      "primaryBreed": {
+        "id": 158,
+        "value": "Labrador Retriever"
+      },
+      "secondaryBreed": {
+        "id": 284,
+        "value": "Mixed Breed"
+      },
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 2,
+        "value": "Puppy (5 months - 2 Years)"
+      },
+      "foster": {
+        "id": 7140,
+        "value": "Brittany  Holt "
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 3,
+        "value": "> 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-07-27T04:00:00Z",
+      "statusUpdated": "2024-07-31T17:29:38.8708266Z"
+    },
+    {
+      "id": 4843,
+      "name": "Delta",
+      "alsoKnownAs": "",
+      "headline": "Delta is a Great Pyrenees male puppy",
+      "primaryBreed": {
+        "id": 127,
+        "value": "Great Pyrenees"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 1,
+        "value": "Male"
+      },
+      "ageGroup": {
+        "id": 2,
+        "value": "Puppy (5 months - 2 Years)"
+      },
+      "foster": {
+        "id": 65,
+        "value": "Emily Bulman"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 3,
+        "value": "> 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-24T04:00:00Z",
+      "statusUpdated": "2024-08-25T19:45:49.1461194Z"
+    },
+    {
+      "id": 4867,
+      "name": "Demi",
+      "alsoKnownAs": "",
+      "headline": "Demi is a darling 4 month old Silver Lab. ",
+      "primaryBreed": {
+        "id": 158,
+        "value": "Labrador Retriever"
+      },
+      "secondaryBreed": null,
+      "gender": {
+        "id": 2,
+        "value": "Female"
+      },
+      "ageGroup": {
+        "id": 1,
+        "value": "Baby (Under 5 Months)"
+      },
+      "foster": {
+        "id": 232,
+        "value": "Chrissie Cutuli"
+      },
+      "status": {
+        "id": 2,
+        "value": "Adoptable"
+      },
+      "subStatus": {
+        "id": 11,
+        "value": "Available"
+      },
+      "weight": {
+        "id": 2,
+        "value": "20 - 50 lbs"
+      },
+      "mainPhoto": "/fixtures/doggo.jpg",
+      "intakeDate": "2024-08-29T04:00:00Z",
+      "statusUpdated": "2024-08-30T02:13:39.9184178Z"
+    }
+  ],
+  "totalResults": 134,
+  "page": 1,
+  "pageSize": 50,
+  "orderBy": "name",
+  "orderDirection": 0,
+  "filters": [
+    {
+      "id": 2,
+      "value": "status"
+    },
+    {
+      "id": 4,
+      "value": "status"
+    },
+    {
+      "id": 10,
+      "value": "status"
+    },
+    {
+      "id": 11,
+      "value": "sub"
+    },
+    {
+      "id": 12,
+      "value": "sub"
+    },
+    {
+      "id": 13,
+      "value": "sub"
+    }
+  ]
+}
