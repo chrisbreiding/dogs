@@ -4,6 +4,12 @@ import { RemoteDog } from './types'
 const useFixtures = false
 const pageSize = 21
 
+const BASE_URL = localStorage.apiUrl
+  ? localStorage.apiUrl
+  : /local/.test(location.hostname)
+    ? `http://${location.hostname}:3333`
+    : 'https://proxy.crbapps.com'
+
 export async function fetchRemoteDogs () {
   if (useFixtures) {
     return dataFixture.results as RemoteDog[]
@@ -24,7 +30,7 @@ export async function fetchRemoteDogs () {
     'filters=sub:13', // Sub-status: Active
   ].join('&')
 
-  const res = await fetch(`http://localhost:3333/dogs?${query}`)
+  const res = await fetch(`${BASE_URL}:3333/dogs?${query}`)
   const resJson = await res.json()
 
   return resJson.results as RemoteDog[]
