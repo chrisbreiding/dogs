@@ -2,7 +2,7 @@ import dataFixture from '../fixtures/data.json'
 import { RemoteDog } from './types'
 
 const useFixtures = false
-const pageSize = 21
+const pageSize = 200
 
 const BASE_URL = localStorage.apiUrl
   ? localStorage.apiUrl
@@ -30,7 +30,7 @@ export async function fetchRemoteDogs () {
     'filters=sub:13', // Sub-status: Active
   ].join('&')
 
-  const res = await fetch(`${BASE_URL}:3333/dogs?${query}`)
+  const res = await fetch(`${BASE_URL}/dogs?${query}`)
   const resJson = await res.json()
 
   return resJson.results as RemoteDog[]
