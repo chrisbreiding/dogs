@@ -7,9 +7,10 @@ import CalendarIcon from '../assets/calendar.svg?react'
 import FemaleIcon from '../assets/female.svg?react'
 import HeartIcon from '../assets/heart.svg?react'
 import MaleIcon from '../assets/male.svg?react'
+import NewIcon from '../assets/new.svg?react'
+import NewWindowIcon from '../assets/new-window.svg?react'
 import PawIcon from '../assets/paw.svg?react'
 import ScaleIcon from '../assets/scale.svg?react'
-import NewIcon from '../assets/new.svg?react'
 
 interface DogOptions {
   dog: DogModel
@@ -68,7 +69,9 @@ function Dog ({ dog, onUpdateDog }: DogOptions) {
             className='btn btn-secondary'
             target='_blank'
             rel='noreferrer'
-          >View</a>
+          >
+            View <NewWindowIcon />
+          </a>
         </div>
       </div>
     </div>

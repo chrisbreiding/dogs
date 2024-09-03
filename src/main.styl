@@ -211,14 +211,29 @@ header {
 
     svg {
       flex-shrink: 0;
-      margin-right: 0.3em;
       width: 1em;
     }
   }
 
-  li.list-group-item {
-    display: flex;
+  .list-group-item {
     align-items: center;
+    display: flex;
+
+    svg {
+      margin-right: 0.3em;
+    }
+  }
+
+  a {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    svg {
+      margin-left: 0.6em;
+      position: relative;
+      top: -1px;
+    }
   }
 
   .spacer {
