@@ -36,13 +36,13 @@ function Dog ({ dog, onUpdateDog }: DogOptions) {
         <HeartIcon />
       </button>
       <div className='card-content'>
-        <h5>
+        <h5 title={dog.name}>
           {dog.name}
         </h5>
         <ul className='card-text list-group list-group-flush'>
-          <li className='list-group-item'>
+          <li className='list-group-item dog-breed'>
             <PawIcon />
-            <span>{dog.breed}</span>
+            <span title={dog.breed}>{dog.breed}</span>
           </li>
 
           <li className='list-group-item'>

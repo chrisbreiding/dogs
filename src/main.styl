@@ -200,7 +200,14 @@ header {
     }
 
     h5 {
-      padding: 0.4em 0.8em 0;
+      background: var(--bs-primary-bg-subtle);
+      color: #142760;
+      font-size: 1.1em;
+      margin-bottom: 0;
+      overflow: hidden;
+      padding: 0.4em 0.8em;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 
@@ -222,6 +229,12 @@ header {
     svg {
       margin-right: 0.3em;
     }
+  }
+
+  .dog-breed span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   a {
