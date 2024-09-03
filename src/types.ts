@@ -69,9 +69,11 @@ export interface LocalData {
 export type LocalDataKeys = 'dogs:dogs' | 'dogs:sorting'
 
 export interface Filters {
-  breed: string[]
-  gender: string[]
-  age: LocalAge[]
+  isNew: { label: string, value: string }[]
+  isFavorite: { label: string, value: string }[]
+  breed: { value: string, count: number }[]
+  gender: { value: string, count: number }[]
+  age: { value: LocalAge, count: number }[]
 }
 
 export interface FilterValues {

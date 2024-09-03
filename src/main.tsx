@@ -1,15 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Dogs } from './Dogs'
 import { DogModel } from './DogModel'
 import { Filters } from './Filters'
 import { DogUpdate, Filters as IFilters, FilterValues, LocalData, RemoteDog, SortingValue } from './types'
-import { clone, deriveFilters } from './data'
+import { clone, deriveFilters, filterAndSortDogs } from './data'
 import { fetchRemoteDogs } from './remote-data'
 import { fetchLocalData, saveLocalData } from './local-data'
 import { Sorting, SortingOptionUpdate } from './Sorting'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Stats } from './Stats'
 
 const initialSortingValues = fetchLocalData<LocalData['sorting']>('dogs:sorting') || [{
   key: 'isNew',
@@ -64,7 +65,7 @@ function Main () {
   const onUpdateFilter = useCallback((key, value) => {
     const newValues = clone<FilterValues>(filterValues)
 
-    if (value !== '') {
+    if (value !== undefined && value !== '') {
       newValues[key] = value
     } else {
       delete newValues[key]
@@ -135,6 +136,16 @@ function Main () {
     setLocalDataDogs(newValues)
   }, [localDataDogs, setLocalDataDogs])
 
+  const filteredAndSortedDogs = useMemo(() => {
+    return filterAndSortDogs(dogs || [], filterValues, sortingValues)
+  }, [dogs, filterValues, sortingValues])
+
+  const newDogs = useMemo(() => {
+    if (!dogs) return []
+
+    return dogs.filter((dog) => dog.isNew)
+  }, [dogs])
+
   if (isLoading) {
     return (
       <div className='loading'>Loading...</div>
@@ -156,12 +167,12 @@ function Main () {
           sortingValues={sortingValues}
         />
       </header>
-      <Dogs
-        dogs={dogs as DogModel[]}
-        filterValues={filterValues}
-        sortingValues={sortingValues}
-        onUpdateDog={onUpdateDog}
+      <Stats
+        dogsShowingCount={filteredAndSortedDogs.length}
+        newCount={newDogs.length}
+        totalDogsCount={dogs?.length || 0}
       />
+      <Dogs dogs={filteredAndSortedDogs} onUpdateDog={onUpdateDog} />
     </>
   )
 }

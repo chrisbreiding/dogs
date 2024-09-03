@@ -1,8 +1,8 @@
 /// <reference types="vite-plugin-svgr/client" />
 
-import React, { useCallback, useMemo } from 'react'
+import React, { useCallback } from 'react'
 import { DogModel } from './DogModel'
-import { DogUpdate, FilterValues, SortingValue } from './types'
+import { DogUpdate } from './types'
 import CalendarIcon from '../assets/calendar.svg?react'
 import FemaleIcon from '../assets/female.svg?react'
 import HeartIcon from '../assets/heart.svg?react'
@@ -10,50 +10,6 @@ import MaleIcon from '../assets/male.svg?react'
 import PawIcon from '../assets/paw.svg?react'
 import ScaleIcon from '../assets/scale.svg?react'
 import NewIcon from '../assets/new.svg?react'
-import { ages } from './constants'
-
-function includesString (key, value, dog) {
-  return dog[key].toLowerCase().includes(value.toLowerCase())
-}
-
-function includesArray (key, value, dog) {
-  return value.includes(dog[key])
-}
-
-function equals (key, value, dog) {
-  return dog[key] === value
-}
-
-const filterSchema = {
-  age: includesArray,
-  breed: includesArray,
-  gender: equals,
-  isFavorite: equals,
-  isNew: equals,
-  name: includesString,
-}
-
-function getSortValue (key, dog) {
-  if (key === 'age') {
-    return ages.findIndex((age) => dog[key].includes(age))
-  }
-
-  if (typeof dog[key] === 'boolean') {
-    return !dog[key]
-  }
-
-  return dog[key]
-}
-
-function getSortComparison (aValue: string, bValue: string) {
-  if (aValue < bValue) {
-    return -1
-  }
-  if (aValue > bValue) {
-    return 1
-  }
-  return 0
-}
 
 interface DogOptions {
   dog: DogModel
@@ -121,50 +77,14 @@ function Dog ({ dog, onUpdateDog }: DogOptions) {
 
 interface DogsOptions {
   dogs: DogModel[]
-  filterValues: FilterValues
-  sortingValues: SortingValue[]
   onUpdateDog: DogOptions['onUpdateDog']
 }
 
-export function Dogs ({ dogs, filterValues, sortingValues, onUpdateDog }: DogsOptions) {
-  const filterEntries = useMemo(() => {
-    return Object.entries(filterValues)
-  }, [filterValues])
-
-  const filteredDogs = useMemo(() => {
-    if (!filterEntries.length) return dogs
-
-    return dogs.filter((dog) => {
-      return filterEntries.every(([key, value]) => {
-        return filterSchema[key](key, value, dog)
-      })
-    })
-  }, [dogs, filterEntries])
-
-  const sortedDogs = useMemo(() => {
-    return filteredDogs.sort((a, b) => {
-      for (const sortingValue of sortingValues) {
-        const { direction, key } = sortingValue
-        const aValue = getSortValue(key, a)
-        const bValue = getSortValue(key, b)
-
-        const comparisonValue = direction === 'asc' ?
-          getSortComparison(aValue, bValue) :
-          getSortComparison(bValue, aValue)
-
-        if (comparisonValue !== 0) {
-          return comparisonValue
-        }
-      }
-
-      return 0
-    })
-  }, [filteredDogs, sortingValues])
-
+export function Dogs ({ dogs, onUpdateDog }: DogsOptions) {
   return (
     <div className='dogs container'>
       <div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5'>
-        {sortedDogs.map((dog) => (
+        {dogs.map((dog) => (
           <div key={dog.id} className='card-wrapper offset-xs-1'>
             <Dog
               dog={dog}

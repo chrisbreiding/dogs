@@ -25,7 +25,7 @@ header {
     width: calc(50% - 1em);
 
     .badge {
-      margin-left: 0.3em;
+      margin-left: 0.5em;
     }
   }
 
@@ -68,8 +68,15 @@ header {
       display: flex;
 
       .select {
-        flex-grow: 2;
         margin-right: 0.5em;
+      }
+
+      .sorting-key {
+        flex-grow: 2;
+      }
+
+      .sorting-direction {
+        min-width: 6em;
       }
 
       button {
@@ -86,6 +93,38 @@ header {
   }
 }
 
+.new-badge {
+  color: var(--bs-green);
+}
+
+.new-text {
+  color: white;
+}
+
+.stats {
+  .alert {
+    display: flex;
+
+    > div {
+      margin-right: 1em;
+    }
+  }
+
+  svg {
+    margin-right: 0.5em;
+    width: 1em;
+  }
+
+  .stat {
+    align-items: center;
+    display: flex;
+  }
+
+  .stat-showing svg {
+    color: var(--bs-blue);
+  }
+}
+
 .dogs {
   .card-wrapper {
     display: flex;
@@ -98,7 +137,10 @@ header {
     max-width: 20em;
     position: relative;
 
-    // TODO: hover styles
+    img {
+      aspect-ratio: 1 / 1;
+    }
+
     .mark-seen-button,
     .toggle-favorite-button {
       border: none;
@@ -115,12 +157,8 @@ header {
       width: 2.9em;
       height: 2.9em;
 
-      .new-badge {
-        color: var(--bs-green);
-      }
-
-      .new-text {
-        color: white;
+      &:hover .new-badge {
+        color: #165236;
       }
     }
 
@@ -135,6 +173,10 @@ header {
       width: 2.5em;
       height: 2.5em;
 
+      &:hover {
+        background: rgb(200, 200, 200, 0.7);
+      }
+
       .heart-stroke {
         color: #333;
       }
@@ -146,6 +188,10 @@ header {
 
     &.dog-is-favorite .toggle-favorite-button {
       background: white;
+
+      &:hover {
+        background: #c8c8c8;
+      }
 
       .heart-stroke,
       .heart-fill {

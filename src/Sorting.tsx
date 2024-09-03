@@ -86,13 +86,13 @@ function SortingSetting ({
   return (
     <li className='list-group-item'>
       <Select
-        className='select'
+        className='select sorting-key'
         defaultValue={chosenOption}
         options={options}
         onChange={_onChangeKey}
       />
       <Select
-        className='select'
+        className='select sorting-direction'
         defaultValue={directionValue}
         options={directionOptions}
         onChange={_onChangeDirection}

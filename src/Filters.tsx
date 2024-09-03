@@ -14,37 +14,32 @@ export interface FiltersOptions {
   onUpdateFilter: (key: FilterKey, value: string | string[] | boolean | undefined) => void
 }
 
-const isNewOptions = [
-  { label: 'All', value: '' },
-  { label: 'New', value: 'true' },
-  { label: 'Seen', value: 'false' },
-]
-const isFavoriteOptions = [
-  { label: 'All', value: '' },
-  { label: 'Favorite', value: 'true' },
-  { label: 'Not Favorite', value: 'false' },
-]
-
 function convertBooleanString (booleanValueString?: string) {
   return !booleanValueString || booleanValueString === '' ? '' : Boolean(booleanValueString)
 }
 
 export function Filters ({ filters, filterValues, onUpdateFilter }: FiltersOptions) {
-  const breedOptions = filters.breed.map((breed) => ({
-    label: breed,
-    value: breed,
-  }))
-  const genderOptions = [
-    { label: 'All', value: '' },
-    ...filters.gender.map((gender) => ({
-      label: gender,
-      value: gender,
-    })),
-  ]
-  const ageOptions = filters.age.map((age) => ({
-    label: age,
-    value: age,
-  }))
+  const breedOptions = useMemo(() => {
+    return filters.breed.map(({ count, value }) => ({
+      label: `${value} (${count})`,
+      value,
+    }))
+  }, [filters.age])
+  const genderOptions = useMemo(() => {
+    return [
+      { label: 'All', value: '' },
+      ...filters.gender.map(({ count, value }) => ({
+        label: `${value} (${count})`,
+        value,
+      })),
+    ]
+  }, [filters.gender])
+  const ageOptions = useMemo(() => {
+    return filters.age.map(({ count, value }) => ({
+      label: `${value} (${count})`,
+      value,
+    }))
+  }, [filters.age])
   const numAppliedFilters = useMemo(() => {
     return Object.keys(filterValues).length
   }, [filterValues])
@@ -129,8 +124,8 @@ export function Filters ({ filters, filterValues, onUpdateFilter }: FiltersOptio
               <Select
                 name='isNew'
                 className='new-seen select'
-                defaultValue={isNewOptions[0]}
-                options={isNewOptions}
+                defaultValue={filters.isNew[0]}
+                options={filters.isNew}
                 onChange={onChangeIsNew}
               />
             </li>
@@ -139,8 +134,8 @@ export function Filters ({ filters, filterValues, onUpdateFilter }: FiltersOptio
               <Select
                 name='isFavorite'
                 className='favorite select'
-                defaultValue={isFavoriteOptions[0]}
-                options={isFavoriteOptions}
+                defaultValue={filters.isFavorite[0]}
+                options={filters.isFavorite}
                 onChange={onChangeIsFavorite}
               />
             </li>
