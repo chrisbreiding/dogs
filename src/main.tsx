@@ -4,7 +4,7 @@ import { Dogs } from './Dogs'
 import { DogModel } from './DogModel'
 import { Filters } from './Filters'
 import { DogUpdate, Filters as IFilters, FilterValues, LocalData, RemoteDog, SortingValue } from './types'
-import { clone, deriveFilters, filterAndSortDogs } from './data'
+import { clone, deriveFilters, filterAndSortDogs, getDogs, migrateData } from './data'
 import { fetchRemoteDogs } from './remote-data'
 import { fetchLocalData, saveLocalData } from './local-data'
 import { Sorting, SortingOptionUpdate } from './Sorting'
@@ -23,42 +23,45 @@ const initialSortingValues = fetchLocalData<LocalData['sorting']>('dogs:sorting'
   direction: 'asc',
 }] as SortingValue[]
 
+const initialDataVersion = fetchLocalData<LocalData['dataVersion']>('dogs:dataVersion') || 0
+
 function Main () {
   const [isLoading, setIsLoading] = useState(true)
   const [remoteDogs, setRemoteDogs] = useState<RemoteDog[] | null>(null)
   const [dogs, setDogs] = useState<DogModel[] | null>(null)
-  const [localDataDogs, setLocalDataDogs] = useState<LocalData['dogs'] | null>(null)
+  const [localDogs, setLocalDogs] = useState<LocalData['dogs'] | null>(null)
   const [filters, setFilters] = useState<IFilters | null>(null)
   const [filterValues, setFilterValues] = useState<FilterValues>({})
   const [sortingValues, setSortingValues] = useState<SortingValue[]>(initialSortingValues)
+  const [dataVersion, setDataVersion] = useState<number>(initialDataVersion)
 
   useEffect(() => {
-    if (!remoteDogs || !localDataDogs) return
+    if (!remoteDogs || !localDogs) return
 
-    const _dogs = remoteDogs.map((dog) => {
-      return DogModel.fromRemoteData(dog, localDataDogs)
-    })
-    const _filters = deriveFilters(_dogs)
+    const dogs = getDogs(remoteDogs, localDogs)
+    const filters = deriveFilters(dogs)
 
-    setDogs(_dogs)
-    setFilters(_filters)
+    setDogs(dogs)
+    setFilters(filters)
 
     setIsLoading(false)
-  }, [remoteDogs, localDataDogs, setDogs, setFilters])
-
-  useEffect(() => {
-    if (!remoteDogs) return
-
-    const data = fetchLocalData<LocalData['dogs']>('dogs:dogs') || {}
-
-    setLocalDataDogs(data)
-  }, [remoteDogs, setLocalDataDogs])
+  }, [remoteDogs, localDogs, setDogs, setFilters])
 
   useEffect(() => {
     (async () => {
-      const _remoteDogs = await fetchRemoteDogs()
+      const remoteDogs = await fetchRemoteDogs()
+      let localDogs = fetchLocalData<LocalData['dogs']>('dogs:dogs') || {}
 
-      setRemoteDogs(_remoteDogs)
+      if (dataVersion === 0) {
+        localDogs = migrateData(remoteDogs, localDogs)
+
+        setDataVersion(1)
+        saveLocalData<LocalData['dataVersion']>('dogs:dataVersion', 1)
+      }
+
+      setRemoteDogs(remoteDogs)
+      setLocalDogs(localDogs)
+      saveLocalData<LocalData['dogs']>('dogs:dogs', localDogs)
     })()
   }, [true])
 
@@ -113,28 +116,40 @@ function Main () {
     setSortingValues(newValues)
   }, [sortingValues, setSortingValues])
 
+  const onRemoveDog = useCallback((id: string) => {
+    if (!localDogs) return
+
+    const newValues = clone<LocalData['dogs']>(localDogs)
+
+    delete newValues[id]
+
+    saveLocalData<LocalData['dogs']>('dogs:dogs', newValues)
+    setLocalDogs(newValues)
+  }, [localDogs, setLocalDogs])
+
   const onUpdateDog = useCallback((update: DogUpdate) => {
-    if (!localDataDogs) return
+    if (!localDogs || !dogs) return
 
-    const newValues = clone<LocalData['dogs']>(localDataDogs)
+    const dog = dogs.find((dog) => update.id === dog.id)
 
-    if (update.isSeen !== undefined) {
-      newValues[update.id] = {
-        ...(newValues[update.id] || {}),
-        isSeen: update.isSeen,
-      }
+    if (!dog) return
+
+    const newValues = clone<LocalData['dogs']>(localDogs)
+    const newDog = dog.serialize()
+
+    if (update.isNew !== undefined) {
+      newDog.isNew = update.isNew
+      newValues[update.id] = newDog
     }
 
     if (update.isFavorite !== undefined) {
-      newValues[update.id] = {
-        ...(newValues[update.id] || {}),
-        isFavorite: update.isFavorite,
-      }
+      newDog.isFavorite = update.isFavorite
+      newValues[update.id] = newDog
     }
 
     saveLocalData<LocalData['dogs']>('dogs:dogs', newValues)
-    setLocalDataDogs(newValues)
-  }, [localDataDogs, setLocalDataDogs])
+    setLocalDogs(newValues)
+  }, [dogs, localDogs, setLocalDogs])
 
   const filteredAndSortedDogs = useMemo(() => {
     return filterAndSortDogs(dogs || [], filterValues, sortingValues)
@@ -144,6 +159,12 @@ function Main () {
     if (!dogs) return []
 
     return dogs.filter((dog) => dog.isNew)
+  }, [dogs])
+
+  const unavailableDogs = useMemo(() => {
+    if (!dogs) return []
+
+    return dogs.filter((dog) => !dog.isAvailable)
   }, [dogs])
 
   if (isLoading) {
@@ -169,10 +190,15 @@ function Main () {
       </header>
       <Stats
         dogsShowingCount={filteredAndSortedDogs.length}
+        unavailableDogsCount={unavailableDogs.length}
         newCount={newDogs.length}
         totalDogsCount={dogs?.length || 0}
       />
-      <Dogs dogs={filteredAndSortedDogs} onUpdateDog={onUpdateDog} />
+      <Dogs
+        dogs={filteredAndSortedDogs}
+        onRemoveDog={onRemoveDog}
+        onUpdateDog={onUpdateDog}
+      />
     </>
   )
 }

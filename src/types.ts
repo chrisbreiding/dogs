@@ -56,30 +56,52 @@ export interface RemoteDog {
 
 type DogId = string
 
+export interface LocalDogsV0 {
+  [key: DogId]: {
+    isFavorite?: boolean
+    isSeen?: boolean
+  }
+}
+
+export interface DogProps {
+  id: string
+  age: LocalAge
+  breeds: string[]
+  gender: Gender
+  isAvailable: boolean
+  isFavorite: boolean
+  isNew: boolean
+  name: string
+  photo: string
+  weight?: string
+}
+
+export type MaybeDogProps = Partial<DogProps>
+
 export interface LocalData {
+  dataVersion: number
   dogs: {
-    [key: DogId]: {
-      isSeen?: boolean
-      isFavorite?: boolean
-    }
+    [key: DogId]: DogProps
   }
   sorting: SortingValue[]
 }
 
-export type LocalDataKeys = 'dogs:dogs' | 'dogs:sorting'
+export type LocalDataKeys = 'dogs:dataVersion' | 'dogs:dogs' | 'dogs:sorting'
 
 export interface Filters {
-  isNew: { label: string, value: string }[]
-  isFavorite: { label: string, value: string }[]
+  age: { value: LocalAge, count: number }[]
   breed: { value: string, count: number }[]
   gender: { value: string, count: number }[]
-  age: { value: LocalAge, count: number }[]
+  isAvailable: { label: string, value: string }[]
+  isFavorite: { label: string, value: string }[]
+  isNew: { label: string, value: string }[]
 }
 
 export interface FilterValues {
   age?: string[]
   breed?: string[]
   gender?: string
+  isAvailable?: string
   isFavorite?: string
   isNew?: string
   name?: string
@@ -93,8 +115,8 @@ export interface SortingValue {
 }
 
 export interface DogUpdate {
-  id: number
-  isSeen?: true
+  id: string
+  isNew?: false
   isFavorite?: boolean
 }
 
