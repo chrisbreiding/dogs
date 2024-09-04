@@ -11,18 +11,9 @@ import { Sorting, SortingOptionUpdate } from './Sorting'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Stats } from './Stats'
+import { defaultSortingValues } from './constants'
 
-const initialSortingValues = fetchLocalData<LocalData['sorting']>('dogs:sorting') || [{
-  key: 'isNew',
-  direction: 'asc',
-}, {
-  key: 'isFavorite',
-  direction: 'asc',
-}, {
-  key: 'name',
-  direction: 'asc',
-}] as SortingValue[]
-
+const initialSortingValues = fetchLocalData<LocalData['sorting']>('dogs:sorting') || defaultSortingValues
 const initialDataVersion = fetchLocalData<LocalData['dataVersion']>('dogs:dataVersion') || 0
 
 function Main () {

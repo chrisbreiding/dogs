@@ -36,6 +36,12 @@ export function Filters ({ filters, filterValues, onUpdateFilter }: FiltersOptio
       value,
     }))
   }, [filters.age])
+  const weightOptions = useMemo(() => {
+    return filters.weight.map(({ count, value }) => ({
+      label: `${value} (${count})`,
+      value,
+    }))
+  }, [filters.weight])
   const numAppliedFilters = useMemo(() => {
     return Object.keys(filterValues).filter((key) => key !== 'isAvailable').length
   }, [filterValues])
@@ -45,7 +51,7 @@ export function Filters ({ filters, filterValues, onUpdateFilter }: FiltersOptio
   }, [onUpdateFilter])
 
   const onChangeMulti = useMemo(() => {
-    return ['breed', 'age'].reduce((memo, key) => {
+    return ['age', 'breed', 'weight'].reduce((memo, key) => {
       memo[key] = (newValue: OnChangeValue<SelectOption, true>) => {
         onUpdateFilter(key as FilterKey, newValue.length ? newValue.map(({ value }) => value) : undefined)
       }
@@ -110,6 +116,26 @@ export function Filters ({ filters, filterValues, onUpdateFilter }: FiltersOptio
               />
             </li>
             <li className='list-group-item'>
+              <label htmlFor='isNew'>New</label>
+              <Select
+                name='isNew'
+                className='select'
+                value={selectedIsNewOption}
+                options={filters.isNew}
+                onChange={onChangeSingle.isNew}
+              />
+            </li>
+            <li className='list-group-item'>
+              <label htmlFor='isFavorite'>Favorite</label>
+              <Select
+                name='isFavorite'
+                className='select'
+                value={selectedIsFavoriteOption}
+                options={filters.isFavorite}
+                onChange={onChangeSingle.isFavorite}
+              />
+            </li>
+            <li className='list-group-item'>
               <label htmlFor='breed'>Breed</label>
               <Select
                 name='breed'
@@ -140,6 +166,16 @@ export function Filters ({ filters, filterValues, onUpdateFilter }: FiltersOptio
               />
             </li>
             <li className='list-group-item'>
+              <label htmlFor='weight'>Weight</label>
+              <Select
+                name='weight'
+                className='select'
+                isMulti
+                options={weightOptions}
+                onChange={onChangeMulti.weight}
+              />
+            </li>
+            <li className='list-group-item'>
               <label htmlFor='isAvailable'>Available</label>
               <Select
                 name='isAvailable'
@@ -147,26 +183,6 @@ export function Filters ({ filters, filterValues, onUpdateFilter }: FiltersOptio
                 value={selectedIsAvailableOption}
                 options={filters.isAvailable}
                 onChange={onChangeSingle.isAvailable}
-              />
-            </li>
-            <li className='list-group-item'>
-              <label htmlFor='isNew'>New</label>
-              <Select
-                name='isNew'
-                className='select'
-                value={selectedIsNewOption}
-                options={filters.isNew}
-                onChange={onChangeSingle.isNew}
-              />
-            </li>
-            <li className='list-group-item'>
-              <label htmlFor='isFavorite'>Favorite</label>
-              <Select
-                name='isFavorite'
-                className='select'
-                value={selectedIsFavoriteOption}
-                options={filters.isFavorite}
-                onChange={onChangeSingle.isFavorite}
               />
             </li>
           </ul>

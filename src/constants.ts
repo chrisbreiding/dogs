@@ -1,3 +1,5 @@
+import { SortingValue } from './types'
+
 export const ages = [
   '< 5 mo',
   '5 mo - 2 yr',
@@ -13,3 +15,33 @@ export const agesMap = {
   'Adult (5 - 9 Years)': '5 - 9 yr',
   'Senior (9+ Years)': '> 9 yr',
 }
+
+export const unknownValue = '(unknown)'
+
+export const weights = [
+  '< 20 lbs',
+  '20 - 50 lbs',
+  '> 50 lbs',
+  unknownValue,
+]
+
+
+export const defaultSortingValues = [{
+  key: 'isNew',
+  direction: 'asc',
+}, {
+  key: 'isFavorite',
+  direction: 'asc',
+}, {
+  key: 'gender',
+  direction: 'asc',
+}, {
+  key: 'age',
+  direction: 'desc',
+}, {
+  key: 'weight',
+  direction: 'asc',
+}, {
+  key: 'name',
+  direction: 'asc',
+}] as SortingValue[]

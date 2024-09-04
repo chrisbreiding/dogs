@@ -119,6 +119,7 @@ export function Sorting ({ onAddOption, onDeleteOption, onUpdateOption, sortingV
     { label: 'Breed', value: 'breed' },
     { label: 'Gender', value: 'gender' },
     { label: 'Age', value: 'age' },
+    { label: 'Weight', value: 'weight' },
   ] as SortingOption[]
 
   const sortingKeys = sortingValues.map(({ key }) => key)

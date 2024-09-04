@@ -73,7 +73,7 @@ export interface DogProps {
   isNew: boolean
   name: string
   photo: string
-  weight?: string
+  weight: string
 }
 
 export type MaybeDogProps = Partial<DogProps>
@@ -95,6 +95,7 @@ export interface Filters {
   isAvailable: { label: string, value: string }[]
   isFavorite: { label: string, value: string }[]
   isNew: { label: string, value: string }[]
+  weight: { value: string, count: number }[]
 }
 
 export interface FilterValues {
@@ -105,12 +106,13 @@ export interface FilterValues {
   isFavorite?: string
   isNew?: string
   name?: string
+  weight?: string
 }
 
 type SortingDirection = 'asc' | 'desc'
 
 export interface SortingValue {
-  key: 'isNew' | 'name' | 'breed' | 'gender' | 'age'
+  key: 'isNew' | 'name' | 'breed' | 'gender' | 'age' | 'weight'
   direction: SortingDirection
 }
 

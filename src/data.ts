@@ -1,4 +1,4 @@
-import { ages } from './constants'
+import { ages, weights } from './constants'
 import { DogModel } from './DogModel'
 import { Filters, FilterValues, LocalData, LocalDogsV0, MaybeDogProps, RemoteDog, SortingValue } from './types'
 
@@ -16,13 +16,14 @@ export function deriveFilters (dogs: DogModel[]) {
     }
 
     return memo
-  }, { breed: [], gender: [], age: [] } as Pick<Filters, 'breed' | 'gender' | 'age'>)
+  }, { breed: [], gender: [], age: [], weight: [] } as Pick<Filters, 'breed' | 'gender' | 'age' | 'weight'>)
 
   for (const key of ['breed', 'gender']) {
     filters[key].sort((a, b) => a.value - b.value)
   }
 
   filters['age'].sort((a, b) => ages.indexOf(a.value) - ages.indexOf(b.value))
+  filters['weight'].sort((a, b) => weights.indexOf(a.value) - weights.indexOf(b.value))
 
   const newCount = dogs.filter(({ isNew }) => isNew).length
   const availableCount = dogs.filter(({ isAvailable }) => isAvailable).length
@@ -80,11 +81,16 @@ const filterSchema = {
   isFavorite: equalsBooleanString,
   isNew: equalsBooleanString,
   name: includesString,
+  weight: includesArray,
 }
 
 function getSortValue (key, dog) {
   if (key === 'age') {
     return ages.findIndex((age) => dog[key].includes(age))
+  }
+
+  if (key === 'weight') {
+    return weights.findIndex((weight) => dog[key].includes(weight))
   }
 
   if (typeof dog[key] === 'boolean') {

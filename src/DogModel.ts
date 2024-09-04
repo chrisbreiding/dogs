@@ -1,4 +1,4 @@
-import { agesMap } from './constants'
+import { agesMap, unknownValue } from './constants'
 import { LocalAge, Gender, RemoteDog, DogProps, MaybeDogProps } from './types'
 
 export class DogModel {
@@ -11,7 +11,7 @@ export class DogModel {
   isNew: boolean
   name: string
   photo: string
-  weight?: string
+  weight: string
 
   static fromRemoteData (remoteDog: RemoteDog, localDog?: MaybeDogProps) {
     return new DogModel({
@@ -26,7 +26,7 @@ export class DogModel {
       isNew: localDog?.isNew === undefined ? true : localDog.isNew,
       name: remoteDog.name,
       photo: remoteDog.mainPhoto,
-      weight: remoteDog.weight ? remoteDog.weight.value : undefined,
+      weight: remoteDog.weight ? remoteDog.weight.value : unknownValue,
     })
   }
 

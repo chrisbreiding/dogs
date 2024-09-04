@@ -14,6 +14,7 @@ import NewWindowIcon from '../assets/new-window.svg?react'
 import PawIcon from '../assets/paw.svg?react'
 import RemoveIcon from '../assets/remove.svg?react'
 import ScaleIcon from '../assets/scale.svg?react'
+import { unknownValue } from './constants'
 
 interface DogOptions {
   dog: DogModel
@@ -77,7 +78,8 @@ function Dog ({ dog, onRemoveDog, onUpdateDog }: DogOptions) {
             <span>{dog.age}</span>
           </li>
 
-          {dog.isAvailable && dog.weight && (
+          {/* if dog is unavailable, frees up a line for the message above */}
+          {dog.isAvailable && dog.weight !== unknownValue && (
             <li className='list-group-item'>
               <ScaleIcon />
               <span>{dog.weight}</span>
