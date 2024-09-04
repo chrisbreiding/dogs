@@ -12,7 +12,7 @@ interface StatsOptions {
 
 export function Stats ({ dogsShowingCount, newCount, totalDogsCount, unavailableDogsCount }: StatsOptions) {
   return (
-    <div className='container stats'>
+    <div className='stats'>
       <div className='alert alert-light'>
         <div className='stat stat-showing'>
           <PawIcon />

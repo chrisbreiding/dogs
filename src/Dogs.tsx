@@ -108,18 +108,16 @@ interface DogsOptions {
 
 export function Dogs ({ dogs, onRemoveDog, onUpdateDog }: DogsOptions) {
   return (
-    <div className='dogs container'>
-      <div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5'>
-        {dogs.map((dog) => (
-          <div key={dog.id} className='card-wrapper offset-xs-1'>
-            <Dog
-              dog={dog}
-              onRemoveDog={onRemoveDog}
-              onUpdateDog={onUpdateDog}
-            />
-          </div>
-        ))}
-      </div>
+    <div className='dogs'>
+      {dogs.map((dog) => (
+        <div key={dog.id} className='dog-wrapper'>
+          <Dog
+            dog={dog}
+            onRemoveDog={onRemoveDog}
+            onUpdateDog={onUpdateDog}
+          />
+        </div>
+      ))}
     </div>
   )
 }

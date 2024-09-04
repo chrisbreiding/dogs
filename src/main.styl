@@ -19,10 +19,15 @@ header {
 
   .filters,
   .sorting {
+    flex-grow: 2;
     margin-bottom: 1em;
     margin-left: 1em;
-    min-width: 25em;
-    width: calc(50% - 1em);
+    min-width: 23em;
+    width: calc(100% - 1em);
+
+    @media all and (min-width: 43em) {
+      width: calc(50% - 1em);
+    }
 
     .badge {
       margin-left: 0.5em;
@@ -102,8 +107,12 @@ header {
 }
 
 .stats {
+  min-width: 25em;
+  padding: 0 1em;
+
   .alert {
     display: flex;
+    margin-bottom: 0.5em;
 
     > div {
       margin-right: 1em;
@@ -130,15 +139,40 @@ header {
 }
 
 .dogs {
-  .card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 25em;
+  padding: 0.5em;
+
+  .dog-wrapper {
     display: flex;
-    margin-bottom: 1em;
+    justify-content: center;
+    padding: 0 0.5em 1em;
+    width: 100%;
+
+    @media all and (min-width: 31em) {
+      justify-content: start;
+      width: 50%;
+    }
+
+    @media all and (min-width: 46.5em) {
+      width: calc(100% / 3);
+    }
+
+    @media all and (min-width: 62em) {
+      width: 25%;
+    }
+
+    @media all and (min-width: 77.5em) {
+      width: 20%;
+    }
   }
 
   .card {
     display: flex;
+    flex-grow: 2;
     min-width: 14em;
-    max-width: 20em;
+    max-width: 23em;
     position: relative;
 
     img {
