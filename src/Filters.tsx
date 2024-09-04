@@ -106,11 +106,10 @@ export function Filters ({ filters, filterValues, onUpdateFilter }: FiltersOptio
         <Accordion.Body>
           <ul className='list-group list-group-flush'>
             <li className='list-group-item'>
-              <label htmlFor='name'>Name</label>
+              <label htmlFor='dogName'>Name</label>
               <input
-                name='name'
+                name='dogName'
                 type='text'
-                className='name'
                 autoComplete='off'
                 onChange={onChangeName}
               />
