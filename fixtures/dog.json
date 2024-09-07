@@ -1,0 +1,153 @@
+{
+  "id": 3101,
+  "name": "Fido",
+  "alsoKnownAs": "",
+  "intakeDate": "2023-08-19T16:00:00Z",
+  "approximateBirthdate": "2021-02-27T12:00:00Z",
+  "headline": "Loves other dogs!!",
+  "description": "How could you say no to this adorable face?",
+  "medicalDog": false,
+  "mixedBreed": false,
+  "primaryBreed": {
+    "id": 298,
+    "value": "Shepherd"
+  },
+  "secondaryBreed": {
+    "id": 284,
+    "value": "Mixed Breed"
+  },
+  "gender": {
+    "id": 1,
+    "value": "Male"
+  },
+  "ageGroup": {
+    "id": 3,
+    "value": "Youth (2 - 5 Years)"
+  },
+  "foster": {
+    "id": 122,
+    "value": "Jane Doe"
+  },
+  "location": null,
+  "dogOrigin": {
+    "id": 4,
+    "value": "Greenville (old)"
+  },
+  "microchipCompany": null,
+  "microchipNumber": "",
+  "adoptionFee": 400.00,
+  "status": {
+    "id": 3,
+    "value": "Adopted"
+  },
+  "subStatus": {
+    "id": 15,
+    "value": "Complete"
+  },
+  "statusUpdated": "2023-09-12T09:09:52.5524387Z",
+  "mainPhotoId": 37,
+  "photos": [
+    {
+      "id": 37,
+      "fileName": null,
+      "uploadedDate": "2023-09-01T10:26:59.3168434Z",
+      "fileType": {
+        "id": 1,
+        "value": "Dog Photo"
+      },
+      "documentType": {
+        "id": null,
+        "value": null
+      },
+      "entityId": 3101,
+      "url": "/fixtures/doggo.jpg",
+      "upload": null,
+      "viewable": false,
+      "order": null
+    },
+    {
+      "id": 38,
+      "fileName": null,
+      "uploadedDate": "2023-09-01T10:27:07.5645717Z",
+      "fileType": {
+        "id": 1,
+        "value": "Dog Photo"
+      },
+      "documentType": {
+        "id": null,
+        "value": null
+      },
+      "entityId": 3101,
+      "url": "/fixtures/doggo.jpg",
+      "upload": null,
+      "viewable": false,
+      "order": null
+    },
+    {
+      "id": 4866,
+      "fileName": null,
+      "uploadedDate": "2023-09-10T23:14:40.0795333Z",
+      "fileType": {
+        "id": 1,
+        "value": "Dog Photo"
+      },
+      "documentType": {
+        "id": null,
+        "value": null
+      },
+      "entityId": 3101,
+      "url": "/fixtures/doggo.jpg",
+      "upload": null,
+      "viewable": false,
+      "order": null
+    },
+    {
+      "id": 4867,
+      "fileName": null,
+      "uploadedDate": "2023-09-10T23:14:53.452088Z",
+      "fileType": {
+        "id": 1,
+        "value": "Dog Photo"
+      },
+      "documentType": {
+        "id": null,
+        "value": null
+      },
+      "entityId": 3101,
+      "url": "/fixtures/doggo.jpg",
+      "upload": null,
+      "viewable": false,
+      "order": null
+    }
+  ],
+  "documents": [
+    {
+      "id": 5429,
+      "fileName": "Contract.pdf",
+      "uploadedDate": "2023-09-12T09:10:09.7160098Z",
+      "fileType": {
+        "id": 3,
+        "value": "Dog Documents"
+      },
+      "documentType": {
+        "id": 2,
+        "value": null
+      },
+      "entityId": 3101,
+      "url": "/fixtures/doggo.jpg",
+      "upload": null,
+      "viewable": false,
+      "order": null
+    }
+  ],
+  "notes": [],
+  "coatColors": [],
+  "markings": "",
+  "paLicense": null,
+  "weight": null,
+  "alterStatus": null,
+  "alterDue": null,
+  "rabiesDue": null,
+  "dispositionDate": null,
+  "dogMother": null
+}

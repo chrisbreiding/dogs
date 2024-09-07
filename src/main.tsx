@@ -4,7 +4,7 @@ import { Dogs } from './Dogs'
 import { DogModel } from './DogModel'
 import { Filters } from './Filters'
 import { DogUpdate, Filters as IFilters, FilterValues, LocalData, RemoteDog, SortingValue } from './types'
-import { clone, deriveFilters, filterAndSortDogs, getDogs, migrateData } from './data'
+import { clone, deriveFilters, filterAndSortDogs, getDogs, getPhotosForUnavailableDogs, migrateData } from './data'
 import { fetchRemoteDogs } from './remote-data'
 import { fetchLocalData, saveLocalData } from './local-data'
 import { Sorting, SortingOptionUpdate } from './Sorting'
@@ -49,6 +49,8 @@ function Main () {
         setDataVersion(1)
         saveLocalData<LocalData['dataVersion']>('dogs:dataVersion', 1)
       }
+
+      localDogs = await getPhotosForUnavailableDogs(remoteDogs, localDogs)
 
       setRemoteDogs(remoteDogs)
       setLocalDogs(localDogs)

@@ -1,5 +1,6 @@
-import dataFixture from '../fixtures/data.json'
-import { RemoteDog } from './types'
+import dogsFixture from '../fixtures/dogs.json'
+import dogFixture from '../fixtures/dog.json'
+import { RemoteDog, SingularRemoteDog } from './types'
 
 const useFixtures = false
 const pageSize = 200
@@ -10,9 +11,15 @@ const BASE_URL = localStorage.apiUrl
     ? `http://${location.hostname}:3333`
     : 'https://proxy.crbapps.com'
 
+async function makeRequest<T> (path: string): Promise<T> {
+  const res = await fetch(`${BASE_URL}/${path}`)
+
+  return res.json()
+}
+
 export async function fetchRemoteDogs () {
   if (useFixtures) {
-    return dataFixture.results as RemoteDog[]
+    return dogsFixture.results as RemoteDog[]
   }
 
   const query = [
@@ -30,8 +37,15 @@ export async function fetchRemoteDogs () {
     'filters=sub:13', // Sub-status: Active
   ].join('&')
 
-  const res = await fetch(`${BASE_URL}/dogs?${query}`)
-  const resJson = await res.json()
+  const { results } = await makeRequest<{ results: RemoteDog[]}>(`dogs?${query}`)
 
-  return resJson.results as RemoteDog[]
+  return results
+}
+
+export async function fetchRemoteDog (id: string) {
+  if (useFixtures) {
+    return dogFixture as SingularRemoteDog
+  }
+
+  return makeRequest<SingularRemoteDog>(`dogs/${id}`)
 }

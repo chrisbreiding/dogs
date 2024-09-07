@@ -1,6 +1,7 @@
 import { ages, unknownValue, weights } from './constants'
 import { DogModel } from './DogModel'
-import { Filters, FilterValues, LocalData, LocalDogsV0, MaybeDogProps, RemoteDog, SortingValue } from './types'
+import { fetchRemoteDog } from './remote-data'
+import { DogProps, Filters, FilterValues, LocalData, LocalDogsV0, MaybeDogProps, RemoteDog, SortingValue } from './types'
 
 export function deriveFilters (dogs: DogModel[]) {
   const filters = dogs.reduce((memo, dog) => {
@@ -110,25 +111,47 @@ function getSortComparison (aValue: string, bValue: string) {
   return 0
 }
 
-export function getDogs (remoteDogs: RemoteDog[], localDogs: LocalData['dogs']) {
-  const availableDogs = remoteDogs.map((dog) => {
-    return DogModel.fromRemoteData(dog, localDogs[dog.id])
-  })
-  const unavailableDogs = Object.keys(localDogs).reduce((memo, localDogId) => {
+function getUnavailableDogs (remoteDogs: RemoteDog[], localDogs: LocalData['dogs']) {
+  return Object.keys(localDogs).reduce((memo, localDogId) => {
     const isRemoteDog = remoteDogs.find(({ id }) => localDogId === `${id}`)
 
     if (isRemoteDog) return memo
 
-    const localDog = localDogs[localDogId]
+    return memo.concat(localDogs[localDogId])
+  }, [] as DogProps[])
+}
 
-    return memo.concat(new DogModel({
+export function getDogs (remoteDogs: RemoteDog[], localDogs: LocalData['dogs']) {
+  const availableDogs = remoteDogs.map((dog) => {
+    return DogModel.fromRemoteData(dog, localDogs[dog.id])
+  })
+  const unavailableDogs = getUnavailableDogs(remoteDogs, localDogs).map((localDog) => {
+    return new DogModel({
       ...localDog,
       isAvailable: false,
       weight: localDog.weight || unknownValue,
-    }))
-  }, [] as DogModel[])
+    })
+  })
 
   return availableDogs.concat(unavailableDogs)
+}
+
+export async function getPhotosForUnavailableDogs (remoteDogs: RemoteDog[], localDogs: LocalData['dogs']) {
+  const unavailableDogs = getUnavailableDogs(remoteDogs, localDogs)
+
+  for (const dog of unavailableDogs) {
+    const remoteDog = await fetchRemoteDog(dog.id)
+    const photo = (
+      remoteDog.photos.find(({ id }) => id === remoteDog.mainPhotoId)
+      || remoteDog.photos[0]
+    )
+
+    if (photo) {
+      localDogs[dog.id].photo = photo.url
+    }
+  }
+
+  return localDogs
 }
 
 export function filterAndSortDogs (

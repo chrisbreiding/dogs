@@ -54,6 +54,102 @@ export interface RemoteDog {
   statusUpdated: string // ISO-8601
 }
 
+export interface SingularRemoteDog {
+  id: number
+  name: string
+  alsoKnownAs: string
+  intakeDate: string
+  approximateBirthdate: string
+  headline: string
+  description: string
+  medicalDog: boolean
+  mixedBreed: boolean
+  primaryBreed: {
+    id: number
+    value: string
+  }
+  secondaryBreed: {
+    id: number
+    value: string
+  }
+  gender: {
+    id: number
+    value: string
+  }
+  ageGroup: {
+    id: number
+    value: string
+  }
+  foster: {
+    id: number
+    value: string
+  }
+  location: any
+  dogOrigin: {
+    id: number
+    value: string
+  }
+  microchipCompany: any
+  microchipNumber: string
+  adoptionFee: number
+  status: {
+    id: number
+    value: string
+  }
+  subStatus: {
+    id: number
+    value: string
+  }
+  statusUpdated: string
+  mainPhotoId: number
+  photos: {
+    id: number
+    fileName: any
+    uploadedDate: string
+    fileType: {
+      id: number
+      value: string
+    }
+    documentType: {
+      id: any
+      value: any
+    }
+    entityId: number
+    url: string
+    upload: any
+    viewable: boolean
+    order: any
+  }[]
+  documents: {
+    id: number
+    fileName: string
+    uploadedDate: string
+    fileType: {
+      id: number
+      value: string
+    }
+    documentType: {
+      id: number
+      value: any
+    }
+    entityId: number
+    url: string
+    upload: any
+    viewable: boolean
+    order: any
+  }[]
+  notes: any[]
+  coatColors: any[]
+  markings: string
+  paLicense: any
+  weight: any
+  alterStatus: any
+  alterDue: any
+  rabiesDue: any
+  dispositionDate: any
+  dogMother: any
+}
+
 type DogId = string
 
 export interface LocalDogsV0 {

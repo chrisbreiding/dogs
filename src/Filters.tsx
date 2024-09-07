@@ -108,6 +108,7 @@ export function Filters ({
               <input
                 name='dogName'
                 type='text'
+                value={filterValues.name || ''}
                 autoComplete='off'
                 onChange={onChangeName}
               />
