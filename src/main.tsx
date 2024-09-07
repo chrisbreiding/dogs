@@ -142,6 +142,18 @@ function Main () {
     setLocalDogs(newValues)
   }, [dogs, localDogs, setLocalDogs])
 
+  const appliedFiltersCount = useMemo(() => {
+    return Object.keys(filterValues).length
+  }, [filterValues])
+
+  const onFilterUnavailable = useCallback(() => {
+    onUpdateFilter('isAvailable', 'false')
+  }, [onUpdateFilter])
+
+  const onClearFilters = useCallback(() => {
+    setFilterValues({})
+  }, [onUpdateFilter])
+
   const filteredAndSortedDogs = useMemo(() => {
     return filterAndSortDogs(dogs || [], filterValues, sortingValues)
   }, [dogs, filterValues, sortingValues])
@@ -167,24 +179,29 @@ function Main () {
   return (
     <>
       <header>
-        <Filters
-          filters={filters!}
-          filterValues={filterValues}
-          onUpdateFilter={onUpdateFilter}
+        <Stats
+          appliedFiltersCount={appliedFiltersCount}
+          dogsShowingCount={filteredAndSortedDogs.length}
+          newCount={newDogs.length}
+          onClearFilters={onClearFilters}
+          onViewUnavailable={onFilterUnavailable}
+          totalDogsCount={dogs?.length || 0}
+          unavailableDogsCount={unavailableDogs.length}
         />
-        <Sorting
-          onAddOption={onAddSortingOption}
-          onDeleteOption={onDeleteSortingOption}
-          onUpdateOption={onUpdateSortingOption}
-          sortingValues={sortingValues}
-        />
+        <div className='filter-sorting'>
+          <Filters
+            filters={filters!}
+            filterValues={filterValues}
+            onUpdateFilter={onUpdateFilter}
+          />
+          <Sorting
+            onAddOption={onAddSortingOption}
+            onDeleteOption={onDeleteSortingOption}
+            onUpdateOption={onUpdateSortingOption}
+            sortingValues={sortingValues}
+          />
+        </div>
       </header>
-      <Stats
-        dogsShowingCount={filteredAndSortedDogs.length}
-        unavailableDogsCount={unavailableDogs.length}
-        newCount={newDogs.length}
-        totalDogsCount={dogs?.length || 0}
-      />
       <Dogs
         dogs={filteredAndSortedDogs}
         onRemoveDog={onRemoveDog}

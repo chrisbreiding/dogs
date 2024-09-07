@@ -1,4 +1,4 @@
-import { ages, weights } from './constants'
+import { ages, unknownValue, weights } from './constants'
 import { DogModel } from './DogModel'
 import { Filters, FilterValues, LocalData, LocalDogsV0, MaybeDogProps, RemoteDog, SortingValue } from './types'
 
@@ -90,7 +90,7 @@ function getSortValue (key, dog) {
   }
 
   if (key === 'weight') {
-    return weights.findIndex((weight) => dog[key].includes(weight))
+    return weights.findIndex((weight) => dog[key] === weight)
   }
 
   if (typeof dog[key] === 'boolean') {
@@ -110,7 +110,7 @@ function getSortComparison (aValue: string, bValue: string) {
   return 0
 }
 
-export function getDogs (remoteDogs: RemoteDog[], localDogs: any) {
+export function getDogs (remoteDogs: RemoteDog[], localDogs: LocalData['dogs']) {
   const availableDogs = remoteDogs.map((dog) => {
     return DogModel.fromRemoteData(dog, localDogs[dog.id])
   })
@@ -119,9 +119,12 @@ export function getDogs (remoteDogs: RemoteDog[], localDogs: any) {
 
     if (isRemoteDog) return memo
 
+    const localDog = localDogs[localDogId]
+
     return memo.concat(new DogModel({
-      ...localDogs[localDogId],
+      ...localDog,
       isAvailable: false,
+      weight: localDog.weight || unknownValue,
     }))
   }, [] as DogModel[])
 

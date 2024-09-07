@@ -1,3 +1,7 @@
+body {
+  background: var(--bs-light);
+}
+
 .loading {
   align-items: center;
   display: flex;
@@ -6,15 +10,92 @@
   justify-content: center;
 }
 
+.spacer {
+  flex-grow: 2;
+}
+
 header {
+  background: var(--bs-light);
+  left: 0;
+  min-width: 24em;
+  padding-top: 1em;
+  position: sticky;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.stats.alert {
+  display: flex;
+  margin: 0 1em 1em;
+  padding: 0.3em 0.2em 0.3em 0.8em;
+
+  .stat {
+    align-items: center;
+    display: flex;
+    margin-right: 1em;
+    padding: 0.2em 0;
+
+    svg {
+      margin-right: 0.5em;
+      width: 1em;
+    }
+  }
+
+  .stat-showing svg {
+    color: var(--bs-blue);
+  }
+
+  .stat-unavailable svg {
+    color: var(--bs-orange);
+  }
+
+  .filters-count {
+    align-items: center;
+    background: white;
+    border: solid 1px var(--bs-border-color);
+    border-radius: var(--bs-border-radius-pill);
+    color: var(--bs-purple);
+    display: flex;
+    font-size: 0.8em;
+    padding: 0 1em 0 0.5em;
+  }
+
+  .filters-clear {
+    background: none;
+    border: none;
+    color: var(--bs-tertiary-color);
+    margin-right: 0.5em;
+    padding: 0;
+
+    &:hover {
+      color: var(--bs-dark-color);
+    }
+
+    svg {
+      stroke-width: 5;
+      width: 1.5em;
+    }
+  }
+
+  .filters-count-text {
+    padding: 0.2em 0;
+  }
+}
+
+.filter-sorting {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 1em 1em 0 0;
+  padding-right: 1em;
 
   .accordion-header svg {
     width: 1em;
     margin-right: 0.5em;
+  }
+
+  .accordion-button {
+    padding: 0.5em 0.8em;
   }
 
   .filters,
@@ -22,7 +103,7 @@ header {
     flex-grow: 2;
     margin-bottom: 1em;
     margin-left: 1em;
-    min-width: 23em;
+    min-width: 22em;
     width: calc(100% - 1em);
 
     @media all and (min-width: 43em) {
@@ -92,6 +173,7 @@ header {
 
         svg {
           width: 1.6em;
+          stroke-width: 2;
         }
       }
     }
@@ -106,42 +188,10 @@ header {
   color: white;
 }
 
-.stats {
-  min-width: 25em;
-  padding: 0 1em;
-
-  .alert {
-    display: flex;
-    margin-bottom: 0.5em;
-
-    > div {
-      margin-right: 1em;
-    }
-  }
-
-  svg {
-    margin-right: 0.5em;
-    width: 1em;
-  }
-
-  .stat {
-    align-items: center;
-    display: flex;
-  }
-
-  .stat-showing svg {
-    color: var(--bs-blue);
-  }
-
-  .stat-unavailable svg {
-    color: var(--bs-orange);
-  }
-}
-
 .dogs {
   display: flex;
   flex-wrap: wrap;
-  min-width: 25em;
+  min-width: 24em;
   padding: 0.5em;
 
   .dog-wrapper {
@@ -254,12 +304,16 @@ header {
 
       .heart-stroke,
       .heart-fill {
-        color: rgb(192, 24, 111);
+        color: #c0186f;
       }
     }
 
     .remove-button {
       padding: 0.2em;
+
+      svg {
+        stroke-width: 2;
+      }
     }
 
     h5 {
@@ -306,6 +360,8 @@ header {
 
   a {
     align-items: center;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     display: flex;
     justify-content: center;
 
@@ -314,9 +370,5 @@ header {
       position: relative;
       top: -1px;
     }
-  }
-
-  .spacer {
-    flex-grow: 2;
   }
 }

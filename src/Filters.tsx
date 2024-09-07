@@ -1,6 +1,6 @@
 /// <reference types="vite-plugin-svgr/client" />
 
-import React, { useCallback, useMemo } from 'react'
+import React, { ChangeEvent, useMemo } from 'react'
 import Select, { OnChangeValue } from 'react-select'
 import Accordion from 'react-bootstrap/Accordion'
 import { Filters, FilterValues, SelectOption } from './types'
@@ -14,7 +14,11 @@ export interface FiltersOptions {
   onUpdateFilter: (key: FilterKey, value: string | string[] | boolean | undefined) => void
 }
 
-export function Filters ({ filters, filterValues, onUpdateFilter }: FiltersOptions) {
+export function Filters ({
+  filters,
+  filterValues,
+  onUpdateFilter,
+}: FiltersOptions) {
   const breedOptions = useMemo(() => {
     return filters.breed.map(({ count, value }) => ({
       label: `${value} (${count})`,
@@ -42,13 +46,10 @@ export function Filters ({ filters, filterValues, onUpdateFilter }: FiltersOptio
       value,
     }))
   }, [filters.weight])
-  const numAppliedFilters = useMemo(() => {
-    return Object.keys(filterValues).filter((key) => key !== 'isAvailable').length
-  }, [filterValues])
 
-  const onChangeName = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeName = (e: ChangeEvent<HTMLInputElement>) => {
     onUpdateFilter('name', e.target.value)
-  }, [onUpdateFilter])
+  }
 
   const onChangeMulti = useMemo(() => {
     return ['age', 'breed', 'weight'].reduce((memo, key) => {
@@ -69,8 +70,6 @@ export function Filters ({ filters, filterValues, onUpdateFilter }: FiltersOptio
       return memo
     }, {} as { [key: string]: (newValue: OnChangeValue<SelectOption, false>) => void })
   }, [onUpdateFilter])
-
-  const badge = numAppliedFilters ? <span className='badge text-bg-secondary'>{numAppliedFilters}</span> : null
 
   const selectedGenderOption = useMemo(() => {
     return filterValues.gender === undefined
@@ -100,8 +99,7 @@ export function Filters ({ filters, filterValues, onUpdateFilter }: FiltersOptio
     <Accordion className='filters'>
       <Accordion.Item eventKey="0">
         <Accordion.Header>
-          <FilterIcon />
-          Filters{badge}
+          <FilterIcon /> Filters
         </Accordion.Header>
         <Accordion.Body>
           <ul className='list-group list-group-flush'>
