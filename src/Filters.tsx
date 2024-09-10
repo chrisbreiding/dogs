@@ -3,15 +3,61 @@
 import React, { ChangeEvent, useMemo } from 'react'
 import Select, { OnChangeValue } from 'react-select'
 import Accordion from 'react-bootstrap/Accordion'
-import { Filters, FilterValues, SelectOption } from './types'
+import { Filters as IFilters, FilterValues, SelectOption } from './types'
 import FilterIcon from '../assets/filter.svg?react'
 
-type FilterKey = 'name' | 'isNew' | 'isFavorite' | keyof Filters
+type FilterKey = keyof IFilters
+type FilterValueKey = keyof FilterValues
 
 export interface FiltersOptions {
-  filters: Filters
+  filters: IFilters
   filterValues: FilterValues
-  onUpdateFilter: (key: FilterKey, value: string | string[] | boolean | undefined) => void
+  onUpdateFilter: (key: FilterValueKey, value: string | string[] | boolean | undefined) => void
+}
+
+interface Option {
+  label: string
+  value: string
+}
+
+type CountedFilters = Pick<IFilters, 'age' | 'breed' | 'gender' | 'weight'>
+
+const useMultiOptions = <T extends keyof CountedFilters>(filters: CountedFilters[T]) => {
+  return useMemo(() => {
+    return filters.map(({ count, value }) => ({
+      label: `${value} (${count})`,
+      value,
+    }))
+  }, [filters])
+}
+
+const useSingleOptions = <T extends keyof CountedFilters>(filters: CountedFilters[T]) => {
+  return [
+    { label: 'All', value: '' },
+    ...useMultiOptions<T>(filters),
+  ]
+}
+
+const multiSelectKeys = ['age', 'breed', 'weight'] as const
+const singleSelectKeys = ['gender', 'isAvailable', 'isFavorite', 'isNew'] as const
+
+type MultiSelectKey = keyof Pick<IFilters, typeof multiSelectKeys[number]>
+type SingleSelectKey = keyof Pick<IFilters, typeof singleSelectKeys[number]>
+
+const useMultiSelected = <T extends MultiSelectKey>(options: Option[], selectedValues: FilterValues[T]) => {
+  return useMemo(() => {
+    return !selectedValues || !selectedValues.length
+      ? []
+      : options.filter(({ value }) => selectedValues.includes(value))
+  }, [selectedValues, options])
+}
+
+const useSingleSelected = <T extends SingleSelectKey>(options: Option[], selectedValue: FilterValues[T]) => {
+  return useMemo(() => {
+    return selectedValue === undefined
+      ? options[0]
+      : options.find(({ value }) => value === selectedValue)
+  }, [selectedValue, options])
 }
 
 export function Filters ({
@@ -19,81 +65,38 @@ export function Filters ({
   filterValues,
   onUpdateFilter,
 }: FiltersOptions) {
-  const breedOptions = useMemo(() => {
-    return filters.breed.map(({ count, value }) => ({
-      label: `${value} (${count})`,
-      value,
-    }))
-  }, [filters.age])
-  const genderOptions = useMemo(() => {
-    return [
-      { label: 'All', value: '' },
-      ...filters.gender.map(({ count, value }) => ({
-        label: `${value} (${count})`,
-        value,
-      })),
-    ]
-  }, [filters.gender])
-  const ageOptions = useMemo(() => {
-    return filters.age.map(({ count, value }) => ({
-      label: `${value} (${count})`,
-      value,
-    }))
-  }, [filters.age])
-  const weightOptions = useMemo(() => {
-    return filters.weight.map(({ count, value }) => ({
-      label: `${value} (${count})`,
-      value,
-    }))
-  }, [filters.weight])
-
   const onChangeName = (e: ChangeEvent<HTMLInputElement>) => {
     onUpdateFilter('name', e.target.value)
   }
 
-  const onChangeMulti = useMemo(() => {
-    return ['age', 'breed', 'weight'].reduce((memo, key) => {
-      memo[key] = (newValue: OnChangeValue<SelectOption, true>) => {
-        onUpdateFilter(key as FilterKey, newValue.length ? newValue.map(({ value }) => value) : undefined)
+  const onChange = useMemo(() => {
+    return Object.keys(filters).reduce((memo, key) => {
+      // @ts-ignore
+      if (singleSelectKeys.includes(key)) {
+        memo[key] = (newValue: OnChangeValue<SelectOption, false>) => {
+          onUpdateFilter(key as FilterValueKey, newValue?.value)
+        }
+      } else {
+        memo[key] = (newValue: OnChangeValue<SelectOption, true>) => {
+          onUpdateFilter(key as FilterValueKey, newValue.length ? newValue.map(({ value }) => value) : undefined)
+        }
       }
-
       return memo
-    }, {} as { [key: string]: (newValue: OnChangeValue<SelectOption, true>) => void })
+    }, {} as { [key in FilterKey]: (newValue: OnChangeValue<SelectOption, boolean>) => void })
   }, [onUpdateFilter])
 
-  const onChangeSingle = useMemo(() => {
-    return ['gender', 'isAvailable', 'isNew', 'isFavorite'].reduce((memo, key) => {
-      memo[key] = (newValue: OnChangeValue<SelectOption, false>) => {
-        onUpdateFilter(key as FilterKey, newValue?.value)
-      }
+  const ageOptions = useMultiOptions<'age'>(filters.age)
+  const breedOptions = useMultiOptions<'breed'>(filters.breed)
+  const genderOptions = useSingleOptions<'gender'>(filters.gender)
+  const weightOptions = useMultiOptions<'weight'>(filters.weight)
 
-      return memo
-    }, {} as { [key: string]: (newValue: OnChangeValue<SelectOption, false>) => void })
-  }, [onUpdateFilter])
-
-  const selectedGenderOption = useMemo(() => {
-    return filterValues.gender === undefined
-      ? genderOptions[0]
-      : genderOptions.find(({ value }) => value === filterValues.gender)
-  }, [filterValues.gender, genderOptions])
-
-  const selectedIsFavoriteOption = useMemo(() => {
-    return filterValues.isFavorite === undefined
-      ? filters.isFavorite[0]
-      : filters.isFavorite.find(({ value }) => value === filterValues.isFavorite)
-  }, [filterValues.isFavorite, filters.isFavorite])
-
-  const selectedIsNewOption = useMemo(() => {
-    return filterValues.isNew === undefined
-      ? filters.isNew[0]
-      : filters.isNew.find(({ value }) => value === filterValues.isNew)
-  }, [filterValues.isNew, filters.isNew])
-
-  const selectedIsAvailableOption = useMemo(() => {
-    return filterValues.isAvailable === undefined
-      ? filters.isAvailable[0]
-      : filters.isAvailable.find(({ value }) => value === filterValues.isAvailable)
-  }, [filterValues.isAvailable, filters.isAvailable])
+  const selectedAgeOptions = useMultiSelected<'age'>(ageOptions, filterValues.age)
+  const selectedBreedOptions = useMultiSelected<'breed'>(breedOptions, filterValues.breed)
+  const selectedGenderOption = useSingleSelected<'gender'>(genderOptions, filterValues.gender)
+  const selectedIsAvailableOption = useSingleSelected<'isAvailable'>(filters.isAvailable, filterValues.isAvailable)
+  const selectedIsFavoriteOption = useSingleSelected<'isFavorite'>(filters.isFavorite, filterValues.isFavorite)
+  const selectedIsNewOption = useSingleSelected<'isNew'>(filters.isNew, filterValues.isNew)
+  const selectedWeightOptions = useMultiSelected<'weight'>(weightOptions, filterValues.weight)
 
   return (
     <Accordion className='filters'>
@@ -120,7 +123,7 @@ export function Filters ({
                 className='select'
                 value={selectedIsNewOption}
                 options={filters.isNew}
-                onChange={onChangeSingle.isNew}
+                onChange={onChange.isNew}
               />
             </li>
             <li className='list-group-item'>
@@ -130,7 +133,7 @@ export function Filters ({
                 className='select'
                 value={selectedIsFavoriteOption}
                 options={filters.isFavorite}
-                onChange={onChangeSingle.isFavorite}
+                onChange={onChange.isFavorite}
               />
             </li>
             <li className='list-group-item'>
@@ -139,8 +142,9 @@ export function Filters ({
                 name='breed'
                 className='select'
                 isMulti
+                value={selectedBreedOptions}
                 options={breedOptions}
-                onChange={onChangeMulti.breed}
+                onChange={onChange.breed}
               />
             </li>
             <li className='list-group-item'>
@@ -150,7 +154,7 @@ export function Filters ({
                 className='select'
                 value={selectedGenderOption}
                 options={genderOptions}
-                onChange={onChangeSingle.gender}
+                onChange={onChange.gender}
               />
             </li>
             <li className='list-group-item'>
@@ -159,8 +163,9 @@ export function Filters ({
                 name='age'
                 className='select'
                 isMulti
+                value={selectedAgeOptions}
                 options={ageOptions}
-                onChange={onChangeMulti.age}
+                onChange={onChange.age}
               />
             </li>
             <li className='list-group-item'>
@@ -169,8 +174,9 @@ export function Filters ({
                 name='weight'
                 className='select'
                 isMulti
+                value={selectedWeightOptions}
                 options={weightOptions}
-                onChange={onChangeMulti.weight}
+                onChange={onChange.weight}
               />
             </li>
             <li className='list-group-item'>
@@ -180,7 +186,7 @@ export function Filters ({
                 className='select'
                 value={selectedIsAvailableOption}
                 options={filters.isAvailable}
-                onChange={onChangeSingle.isAvailable}
+                onChange={onChange.isAvailable}
               />
             </li>
           </ul>
