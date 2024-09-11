@@ -190,20 +190,20 @@ function Main () {
           totalDogsCount={dogs?.length || 0}
           unavailableDogsCount={unavailableDogs.length}
         />
-        <div className='filter-sorting'>
-          <Filters
-            filters={filters!}
-            filterValues={filterValues}
-            onUpdateFilter={onUpdateFilter}
-          />
-          <Sorting
-            onAddOption={onAddSortingOption}
-            onDeleteOption={onDeleteSortingOption}
-            onUpdateOption={onUpdateSortingOption}
-            sortingValues={sortingValues}
-          />
-        </div>
       </header>
+      <div className='filter-sorting'>
+        <Filters
+          filters={filters!}
+          filterValues={filterValues}
+          onUpdateFilter={onUpdateFilter}
+        />
+        <Sorting
+          onAddOption={onAddSortingOption}
+          onDeleteOption={onDeleteSortingOption}
+          onUpdateOption={onUpdateSortingOption}
+          sortingValues={sortingValues}
+        />
+      </div>
       <Dogs
         dogs={filteredAndSortedDogs}
         onRemoveDog={onRemoveDog}
