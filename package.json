@@ -8,12 +8,14 @@
     "deploy": "echo 'Deploying via netlify' && git push origin $(git rev-parse --abbrev-ref HEAD):production",
     "lint-fix": "npm run lint -- --fix",
     "lint": "eslint 'src/*.+(ts|tsx)' 'src/**/*.+(ts|tsx)' 'cypress/**/*.+(ts|tsx)'",
+    "postinstall": "patch-package",
     "preview": "vite preview --port 8088",
     "start": "vite",
     "ts-check": "tsc"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
+    "@cypress/react-tooltip": "^0.5.4",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
@@ -24,6 +26,7 @@
     "eslint": "^8.28.0",
     "eslint-plugin-crb": "^2.0.7",
     "eslint-plugin-react": "^7.31.11",
+    "patch-package": "^8.0.0",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.3.1",

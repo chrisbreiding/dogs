@@ -14,7 +14,9 @@ import NewWindowIcon from '../assets/new-window.svg?react'
 import PawIcon from '../assets/paw.svg?react'
 import RemoveIcon from '../assets/remove.svg?react'
 import ScaleIcon from '../assets/scale.svg?react'
+import HourglassIcon from '../assets/hourglass.svg?react'
 import { unknownValue } from './constants'
+import { Tooltip } from './Tooltip'
 
 interface DogOptions {
   dog: DogModel
@@ -42,15 +44,21 @@ function Dog ({ dog, onRemoveDog, onUpdateDog }: DogOptions) {
       'dog-is-available': dog.isAvailable,
     })}>
       <img className='card-img-top' src={dog.photo} />
-      <button className='mark-seen-button' onClick={onMarkAsSeen}>
-        <NewIcon />
-      </button>
-      <button className='toggle-favorite-button' onClick={onToggleFavorite}>
-        <HeartIcon />
-      </button>
-      <button className='remove-button' onClick={onRemove}>
-        <RemoveIcon />
-      </button>
+      <Tooltip title='Mark as seen' noWrapper visible={dog.isNew ? undefined : false}>
+        <button className='mark-seen-button' onClick={onMarkAsSeen}>
+          <NewIcon />
+        </button>
+      </Tooltip>
+      <Tooltip title={dog.isFavorite ? 'Remove from favorites' : 'Add to favorites'} noWrapper>
+        <button className='toggle-favorite-button' onClick={onToggleFavorite}>
+          <HeartIcon />
+        </button>
+      </Tooltip>
+      <Tooltip title='Remove' noWrapper>
+        <button className='remove-button' onClick={onRemove}>
+          <RemoveIcon />
+        </button>
+      </Tooltip>
       <div className='card-content'>
         <h5 title={dog.name}>
           {dog.name}
@@ -59,30 +67,51 @@ function Dog ({ dog, onRemoveDog, onUpdateDog }: DogOptions) {
           {!dog.isAvailable && (
             <li className='list-group-item dog-unavailable bg-danger-subtle'>
               <HomeIcon />
-              <span>No Longer Available</span>
+              <span className='dog-attribute-content'>No Longer Available</span>
             </li>
           )}
 
           <li className='list-group-item dog-breed'>
-            <PawIcon />
-            <span title={dog.breed}>{dog.breed}</span>
+            <Tooltip title='Breed'>
+              <PawIcon />
+            </Tooltip>
+            <span className='dog-attribute-content' title={dog.breed}>{dog.breed}</span>
           </li>
 
           <li className='list-group-item'>
-            {dog.gender === 'Female' ? <FemaleIcon /> : <MaleIcon />}
-            <span>{dog.gender}</span>
+            <Tooltip title='Gender'>
+              {dog.gender === 'Female' ? <FemaleIcon /> : <MaleIcon />}
+            </Tooltip>
+            <span className='dog-attribute-content'>{dog.gender}</span>
           </li>
 
           <li className='list-group-item'>
-            <CalendarIcon />
-            <span>{dog.age}</span>
+            <Tooltip title='Gender'>
+              <CalendarIcon />
+            </Tooltip>
+            <span className='dog-attribute-content'>{dog.age}</span>
+          </li>
+
+          <li className='list-group-item dog-intake-date'>
+            <Tooltip title='Intake Date'>
+              <HourglassIcon />
+            </Tooltip>
+            <span className='dog-attribute-content'>
+              {dog.intakeMonth}
+              <span className='date-delimiter'>/</span>
+              {dog.intakeDay}
+              <span className='date-delimiter'>/</span>
+              {dog.intakeYear}
+            </span>
           </li>
 
           {/* if dog is unavailable, frees up a line for the message above */}
           {dog.isAvailable && dog.weight !== unknownValue && (
             <li className='list-group-item'>
-              <ScaleIcon />
-              <span>{dog.weight}</span>
+              <Tooltip title='Weight'>
+                <ScaleIcon />
+              </Tooltip>
+              <span className='dog-attribute-content'>{dog.weight}</span>
             </li>
           )}
         </ul>

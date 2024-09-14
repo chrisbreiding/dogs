@@ -5,6 +5,7 @@ import PawIcon from '../assets/paw.svg?react'
 import NewIcon from '../assets/new.svg?react'
 import HomeIcon from '../assets/home.svg?react'
 import RemoveIcon from '../assets/remove.svg?react'
+import { Tooltip } from './Tooltip'
 
 interface StatsOptions {
   appliedFiltersCount: number
@@ -48,17 +49,21 @@ export function Stats ({
       {unavailableDogsCount > 0 && (
         <div className='stat stat-unavailable'>
           <HomeIcon />
-          <a href='#' className='link-secondary link-underline-opacity-25' onClick={onFilterUnavailable}>
-            {unavailableDogsCount} no longer available
-          </a>
+          <Tooltip title='Apply filter'>
+            <a href='#' className='link-secondary link-underline-opacity-25' onClick={onFilterUnavailable}>
+              {unavailableDogsCount} no longer available
+            </a>
+          </Tooltip>
         </div>
       )}
       {appliedFiltersCount > 0 && (
         <>
           <span className='filters-count'>
-            <button onClick={onClearFilters} className='filters-clear'>
-              <RemoveIcon />
-            </button>
+            <Tooltip title={`Remove ${filtersText}`}>
+              <button onClick={onClearFilters} className='filters-clear'>
+                <RemoveIcon />
+              </button>
+            </Tooltip>
             <span className='filters-count-text'>
               {appliedFiltersCount} {filtersText} applied
             </span>

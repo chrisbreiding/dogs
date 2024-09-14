@@ -14,6 +14,14 @@ body {
   flex-grow: 2;
 }
 
+.dog-tooltip, {
+  border-color: var(--bs-gray) !important;
+
+  .dog-tooltip-arrow svg {
+    stroke: var(--bs-gray);
+  }
+}
+
 header {
   background: var(--bs-light);
   left: 0;
@@ -347,11 +355,18 @@ header {
     align-items: center;
     display: flex;
 
-    svg {
+    .dog-tooltip-wrapper {
+      align-items: center;
+      display: flex;
       margin-right: 0.3em;
+
+      span {
+        align-items: center;
+        display: flex;
+      }
     }
 
-    span {
+    .dog-attribute-content {
       color: var(--bs-gray-dark);
     }
   }
