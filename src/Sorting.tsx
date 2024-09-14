@@ -113,12 +113,13 @@ export interface SortingOptions {
 
 export function Sorting ({ onAddOption, onDeleteOption, onUpdateOption, sortingValues }: SortingOptions) {
   const keyOptions = [
-    { label: 'New', value: 'isNew' },
-    { label: 'Favorite', value: 'isFavorite' },
-    { label: 'Name', value: 'name' },
-    { label: 'Breed', value: 'breed' },
-    { label: 'Gender', value: 'gender' },
     { label: 'Age', value: 'age' },
+    { label: 'Breed', value: 'breed' },
+    { label: 'Favorite', value: 'isFavorite' },
+    { label: 'Gender', value: 'gender' },
+    { label: 'Intake Date', value: 'intakeDate' },
+    { label: 'Name', value: 'name' },
+    { label: 'New', value: 'isNew' },
     { label: 'Weight', value: 'weight' },
   ] as SortingOption[]
 

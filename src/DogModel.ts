@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { agesMap, unknownValue } from './constants'
 import { LocalAge, Gender, RemoteDog, DogProps, MaybeDogProps } from './types'
 
@@ -6,6 +7,7 @@ export class DogModel {
   age: LocalAge
   breeds: string[]
   gender: Gender
+  intakeDate: dayjs.Dayjs
   isAvailable: boolean
   isFavorite: boolean
   isNew: boolean
@@ -21,6 +23,7 @@ export class DogModel {
         ? [remoteDog.primaryBreed.value, remoteDog.secondaryBreed?.value]
         : [remoteDog.primaryBreed.value],
       gender: remoteDog.gender.value,
+      intakeDate: remoteDog.intakeDate,
       isAvailable: true,
       isFavorite: !!localDog?.isFavorite,
       isNew: localDog?.isNew === undefined ? true : localDog.isNew,
@@ -35,6 +38,7 @@ export class DogModel {
     this.age = dogProps.age
     this.breeds = dogProps.breeds
     this.gender = dogProps.gender
+    this.intakeDate = dayjs(dogProps.intakeDate)
     this.isAvailable = dogProps.isAvailable
     this.isFavorite = dogProps.isFavorite
     this.isNew = dogProps.isNew
@@ -47,12 +51,25 @@ export class DogModel {
     return this.breeds.join(' | ')
   }
 
+  get intakeMonth () {
+    return this.intakeDate.format('M')
+  }
+
+  get intakeDay () {
+    return this.intakeDate.format('D')
+  }
+
+  get intakeYear () {
+    return this.intakeDate.format('YY')
+  }
+
   serialize (): DogProps {
     return {
       id: this.id,
       age: this.age,
       breeds: this.breeds,
       gender: this.gender,
+      intakeDate: this.intakeDate.toISOString(),
       isAvailable: this.isAvailable,
       isFavorite: this.isFavorite,
       isNew: this.isNew,

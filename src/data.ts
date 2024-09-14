@@ -1,7 +1,15 @@
+import dayjs from 'dayjs'
 import { ages, unknownValue, weights } from './constants'
 import { DogModel } from './DogModel'
 import { fetchRemoteDog } from './remote-data'
-import { DogProps, Filters, FilterValues, LocalData, LocalDogsV0, MaybeDogProps, RemoteDog, SortingValue } from './types'
+import {
+  DogProps,
+  Filters,
+  FilterValues,
+  LocalData,
+  RemoteDog,
+  SortingValue,
+} from './types'
 
 export function deriveFilters (dogs: DogModel[]) {
   const filters = dogs.reduce((memo, dog) => {
@@ -88,6 +96,10 @@ const filterSchema = {
 function getSortValue (key, dog) {
   if (key === 'age') {
     return ages.findIndex((age) => dog[key].includes(age))
+  }
+
+  if (key === 'intakeDate') {
+    return (dog[key] as dayjs.Dayjs).valueOf()
   }
 
   if (key === 'weight') {
@@ -195,33 +207,4 @@ export function filterAndSortDogs (
   })
 
   return sortedDogs
-}
-
-interface TempLocalDogs {
-  [key: string]: MaybeDogProps
-}
-
-export function migrateData (remoteDogs: RemoteDog[], localDataDogs: LocalDogsV0) {
-  const translatedLocalDogs = Object.keys(localDataDogs).reduce((memo, id) => {
-    const localDog = localDataDogs[id]
-
-    memo[id] = {
-      isFavorite: localDog.isFavorite,
-      isNew: localDog.isSeen === undefined ? undefined : !localDog.isSeen,
-    }
-
-    return memo
-  }, {} as TempLocalDogs)
-
-  return Object.keys(translatedLocalDogs).reduce((memo, id) => {
-    const remoteDog = remoteDogs.find((dog) => `${dog.id}` === id)
-
-    if (!remoteDog) return memo
-
-    const dog = DogModel.fromRemoteData(remoteDog, translatedLocalDogs[id])
-
-    memo[id] = dog.serialize()
-
-    return memo
-  }, {} as LocalData['dogs'])
 }

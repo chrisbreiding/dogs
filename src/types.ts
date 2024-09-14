@@ -159,17 +159,26 @@ export interface LocalDogsV0 {
   }
 }
 
-export interface DogProps {
+export interface DogPropsV1 {
   id: string
   age: LocalAge
   breeds: string[]
   gender: Gender
+  intakeDate: string
   isAvailable: boolean
   isFavorite: boolean
   isNew: boolean
   name: string
   photo: string
   weight: string
+}
+
+export interface LocalDogsV1 {
+  [key: DogId]: DogPropsV1
+}
+
+export type DogProps = DogPropsV1 &{
+  intakeDate: string
 }
 
 export type MaybeDogProps = Partial<DogProps>
@@ -208,7 +217,7 @@ export interface FilterValues {
 type SortingDirection = 'asc' | 'desc'
 
 export interface SortingValue {
-  key: 'isNew' | 'name' | 'breed' | 'gender' | 'age' | 'weight'
+  key: 'age' | 'breed' | 'intakeDate' | 'isNew' | 'name' | 'gender' |'weight'
   direction: SortingDirection
 }
 

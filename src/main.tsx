@@ -1,17 +1,19 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '@cypress/react-tooltip/dist/tooltip.css'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import { Dogs } from './Dogs'
-import { DogModel } from './DogModel'
-import { Filters } from './Filters'
-import { DogUpdate, Filters as IFilters, FilterValues, LocalData, RemoteDog, SortingValue } from './types'
-import { clone, deriveFilters, filterAndSortDogs, getDogs, getPhotosForUnavailableDogs, migrateData } from './data'
-import { fetchRemoteDogs } from './remote-data'
-import { fetchLocalData, saveLocalData } from './local-data'
-import { Sorting, SortingOptionUpdate } from './Sorting'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Stats } from './Stats'
 import { defaultSortingValues } from './constants'
+import { clone, deriveFilters, filterAndSortDogs, getDogs, getPhotosForUnavailableDogs } from './data'
+import { DogModel } from './DogModel'
+import { Dogs } from './Dogs'
+import { Filters } from './Filters'
+import { fetchLocalData, saveLocalData } from './local-data'
+import { latestDataVersion, migrateData } from './migrations'
+import { fetchRemoteDogs } from './remote-data'
+import { Sorting, SortingOptionUpdate } from './Sorting'
+import { Stats } from './Stats'
+import { DogUpdate, FilterValues, Filters as IFilters, LocalData, RemoteDog, SortingValue } from './types'
 
 const initialSortingValues = fetchLocalData<LocalData['sorting']>('dogs:sorting') || defaultSortingValues
 const initialDataVersion = fetchLocalData<LocalData['dataVersion']>('dogs:dataVersion') || 0
@@ -43,11 +45,11 @@ function Main () {
       const remoteDogs = await fetchRemoteDogs()
       let localDogs = fetchLocalData<LocalData['dogs']>('dogs:dogs') || {}
 
-      if (dataVersion === 0) {
-        localDogs = migrateData(remoteDogs, localDogs)
+      if (dataVersion < latestDataVersion) {
+        localDogs = migrateData(dataVersion, remoteDogs, localDogs)
 
-        setDataVersion(1)
-        saveLocalData<LocalData['dataVersion']>('dogs:dataVersion', 1)
+        setDataVersion(latestDataVersion)
+        saveLocalData<LocalData['dataVersion']>('dogs:dataVersion', latestDataVersion)
       }
 
       localDogs = await getPhotosForUnavailableDogs(remoteDogs, localDogs)
