@@ -66,7 +66,9 @@ function Dog ({ dog, onRemoveDog, onUpdateDog }: DogOptions) {
         <ul className='card-text list-group list-group-flush'>
           {!dog.isAvailable && (
             <li className='list-group-item dog-unavailable bg-danger-subtle'>
-              <HomeIcon />
+              <span className='dog-tooltip-wrapper'>
+                <HomeIcon />
+              </span>
               <span className='dog-attribute-content'>No Longer Available</span>
             </li>
           )}
