@@ -25,7 +25,7 @@ export function deriveFilters (dogs: DogModel[]) {
     }
 
     return memo
-  }, { breed: [], gender: [], age: [], weight: [] } as Pick<Filters, 'breed' | 'gender' | 'age' | 'weight'>)
+  }, { age: [], breed: [], gender: [], weight: [] } as Pick<Filters, 'breed' | 'gender' | 'age' | 'weight'>)
 
   for (const key of ['breed', 'gender']) {
     filters[key].sort((a, b) => a.value - b.value)

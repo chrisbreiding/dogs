@@ -211,11 +211,11 @@ export interface FilterValues {
   isFavorite?: string
   isNew?: string
   name?: string
-  weight?: string
+  weight?: string[]
 }
 
-export type MultiFilterValues = 'age' | 'breed'
-export type SingleFilterValues = 'gender' | 'isAvailable' | 'isFavorite' | 'isNew' | 'name' | 'weight'
+export type MultiFilterValues = 'age' | 'breed' | 'weight'
+export type SingleFilterValues = 'gender' | 'isAvailable' | 'isFavorite' | 'isNew' | 'name'
 
 type SortingDirection = 'asc' | 'desc'
 
