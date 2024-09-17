@@ -214,6 +214,9 @@ export interface FilterValues {
   weight?: string
 }
 
+export type MultiFilterValues = 'age' | 'breed'
+export type SingleFilterValues = 'gender' | 'isAvailable' | 'isFavorite' | 'isNew' | 'name' | 'weight'
+
 type SortingDirection = 'asc' | 'desc'
 
 export interface SortingValue {

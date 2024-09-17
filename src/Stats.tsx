@@ -6,13 +6,14 @@ import NewIcon from '../assets/new.svg?react'
 import HomeIcon from '../assets/home.svg?react'
 import RemoveIcon from '../assets/remove.svg?react'
 import { Tooltip } from './Tooltip'
+import { FilterValues } from './types'
 
 interface StatsOptions {
   appliedFiltersCount: number
   dogsShowingCount: number
   newCount: number
   onClearFilters: () => void
-  onViewUnavailable: () => void
+  onReplaceFilter: (key: keyof FilterValues, value: string) => void
   totalDogsCount: number
   unavailableDogsCount: number
 }
@@ -22,14 +23,14 @@ export function Stats ({
   dogsShowingCount,
   newCount,
   onClearFilters,
-  onViewUnavailable,
+  onReplaceFilter,
   totalDogsCount,
   unavailableDogsCount,
 }: StatsOptions) {
-  const onFilterUnavailable = (e: MouseEvent<HTMLAnchorElement>) => {
+  const onFilter = (key: keyof FilterValues, value: string) => (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
 
-    onViewUnavailable()
+    onReplaceFilter(key, value)
   }
 
   const filtersText = appliedFiltersCount === 1 ? 'filter' : 'filters'
@@ -43,14 +44,18 @@ export function Stats ({
       {newCount > 0 && (
         <div className='stat stat-new'>
           <NewIcon />
-          <span>{newCount} new</span>
+          <Tooltip title='Apply filter'>
+            <a href='#' className='link-secondary link-underline-opacity-25' onClick={onFilter('isNew', 'true')}>
+              {newCount} new
+            </a>
+          </Tooltip>
         </div>
       )}
       {unavailableDogsCount > 0 && (
         <div className='stat stat-unavailable'>
           <HomeIcon />
           <Tooltip title='Apply filter'>
-            <a href='#' className='link-secondary link-underline-opacity-25' onClick={onFilterUnavailable}>
+            <a href='#' className='link-secondary link-underline-opacity-25' onClick={onFilter('isAvailable', 'false')}>
               {unavailableDogsCount} no longer available
             </a>
           </Tooltip>

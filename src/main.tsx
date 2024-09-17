@@ -13,7 +13,7 @@ import { latestDataVersion, migrateData } from './migrations'
 import { fetchRemoteDogs } from './remote-data'
 import { Sorting, SortingOptionUpdate } from './Sorting'
 import { Stats } from './Stats'
-import { DogUpdate, FilterValues, Filters as IFilters, LocalData, RemoteDog, SortingValue } from './types'
+import { DogUpdate, FilterValues, Filters as IFilters, LocalData, MultiFilterValues, RemoteDog, SingleFilterValues, SortingValue } from './types'
 
 const initialSortingValues = fetchLocalData<LocalData['sorting']>('dogs:sorting') || defaultSortingValues
 const initialDataVersion = fetchLocalData<LocalData['dataVersion']>('dogs:dataVersion') || 0
@@ -60,17 +60,25 @@ function Main () {
     })()
   }, [true])
 
-  const onUpdateFilter = useCallback((key, value) => {
+  const onUpdateFilter = useCallback((key: keyof FilterValues, value: string | string[] | boolean | undefined) => {
     const newValues = clone<FilterValues>(filterValues)
 
     if (value !== undefined && value !== '') {
-      newValues[key] = value
+      if (typeof value === 'string') {
+        newValues[key as SingleFilterValues] = value as string
+      } else {
+        newValues[key as MultiFilterValues] = value as string[]
+      }
     } else {
       delete newValues[key]
     }
 
     setFilterValues(newValues)
   }, [filterValues, setFilterValues])
+
+  const onReplaceFilter = useCallback((key: keyof FilterValues, value: string) => {
+    setFilterValues({ [key]: value })
+  }, [onUpdateFilter])
 
   const onAddSortingOption = useCallback((value: SortingValue) => {
     const newValues = [
@@ -150,10 +158,6 @@ function Main () {
     return Object.keys(filterValues).length
   }, [filterValues])
 
-  const onFilterUnavailable = useCallback(() => {
-    onUpdateFilter('isAvailable', 'false')
-  }, [onUpdateFilter])
-
   const onClearFilters = useCallback(() => {
     setFilterValues({})
   }, [onUpdateFilter])
@@ -188,7 +192,7 @@ function Main () {
           dogsShowingCount={filteredAndSortedDogs.length}
           newCount={newDogs.length}
           onClearFilters={onClearFilters}
-          onViewUnavailable={onFilterUnavailable}
+          onReplaceFilter={onReplaceFilter}
           totalDogsCount={dogs?.length || 0}
           unavailableDogsCount={unavailableDogs.length}
         />
