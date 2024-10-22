@@ -153,6 +153,11 @@ export async function getPhotosForUnavailableDogs (remoteDogs: RemoteDog[], loca
 
   for (const dog of unavailableDogs) {
     const remoteDog = await fetchRemoteDog(dog.id)
+
+    if ('error' in remoteDog || !remoteDog.photos?.length) {
+      continue
+    }
+
     const photo = (
       remoteDog.photos.find(({ id }) => id === remoteDog.mainPhotoId)
       || remoteDog.photos[0]

@@ -20,6 +20,7 @@ const initialDataVersion = fetchLocalData<LocalData['dataVersion']>('dogs:dataVe
 
 function Main () {
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<Error | null>(null)
   const [remoteDogs, setRemoteDogs] = useState<RemoteDog[] | null>(null)
   const [dogs, setDogs] = useState<DogModel[] | null>(null)
   const [localDogs, setLocalDogs] = useState<LocalData['dogs'] | null>(null)
@@ -42,7 +43,16 @@ function Main () {
 
   useEffect(() => {
     (async () => {
-      const remoteDogs = await fetchRemoteDogs()
+      const response = await fetchRemoteDogs()
+
+      if ('error' in response) {
+        setError(response.error as Error)
+        setIsLoading(false)
+
+        return
+      }
+
+      const remoteDogs = response
       let localDogs = fetchLocalData<LocalData['dogs']>('dogs:dogs') || {}
 
       if (dataVersion < latestDataVersion) {
@@ -181,6 +191,21 @@ function Main () {
   if (isLoading) {
     return (
       <div className='loading'>Loading...</div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className='error mt-5 d-flex justify-content-center align-items-center'>
+        <div>
+          <h3>Error</h3>
+          <pre className='alert alert-light'>
+            <code>
+              {JSON.stringify(error, null, 2)}
+            </code>
+          </pre>
+        </div>
+      </div>
     )
   }
 

@@ -150,6 +150,18 @@ export interface SingularRemoteDog {
   dogMother: any
 }
 
+interface ResultsResponse {
+  results: RemoteDog[]
+}
+
+export interface ErrorResponse {
+  error: Error
+  data: any
+}
+
+export type RemoteDogsResponse = ResultsResponse | ErrorResponse
+export type RemoteDogResponse = SingularRemoteDog | ErrorResponse
+
 type DogId = string
 
 export interface LocalDogsV0 {

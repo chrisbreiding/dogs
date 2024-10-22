@@ -1,6 +1,6 @@
 import dogsFixture from '../fixtures/dogs.json'
 import dogFixture from '../fixtures/dog.json'
-import { RemoteDog, SingularRemoteDog } from './types'
+import { ErrorResponse, RemoteDog, RemoteDogResponse, RemoteDogsResponse, SingularRemoteDog } from './types'
 
 const useFixtures = false
 const pageSize = 200
@@ -37,9 +37,13 @@ export async function fetchRemoteDogs () {
     'filters=sub:13', // Sub-status: Active
   ].join('&')
 
-  const { results } = await makeRequest<{ results: RemoteDog[]}>(`dogs?${query}`)
+  const response = await makeRequest<RemoteDogsResponse>(`dogs?${query}`)
 
-  return results
+  if ('error' in response) {
+    return response as ErrorResponse
+  }
+
+  return response.results as RemoteDog[]
 }
 
 export async function fetchRemoteDog (id: string) {
@@ -47,5 +51,11 @@ export async function fetchRemoteDog (id: string) {
     return dogFixture as SingularRemoteDog
   }
 
-  return makeRequest<SingularRemoteDog>(`dogs/${id}`)
+  const response = await makeRequest<RemoteDogResponse>(`dogs/${id}`)
+
+  if ('error' in response) {
+    return response as ErrorResponse
+  }
+
+  return response
 }
