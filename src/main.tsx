@@ -17,6 +17,7 @@ import { DogUpdate, FilterValues, Filters as IFilters, LocalData, MultiFilterVal
 
 const initialSortingValues = fetchLocalData<LocalData['sorting']>('dogs:sorting') || defaultSortingValues
 const initialDataVersion = fetchLocalData<LocalData['dataVersion']>('dogs:dataVersion') || 0
+const initialFilterValues = fetchLocalData<LocalData['filters']>('dogs:filters') || {}
 
 function Main () {
   const [isLoading, setIsLoading] = useState(true)
@@ -25,7 +26,7 @@ function Main () {
   const [dogs, setDogs] = useState<DogModel[] | null>(null)
   const [localDogs, setLocalDogs] = useState<LocalData['dogs'] | null>(null)
   const [filters, setFilters] = useState<IFilters | null>(null)
-  const [filterValues, setFilterValues] = useState<FilterValues>({})
+  const [filterValues, setFilterValues] = useState<FilterValues>(initialFilterValues)
   const [sortingValues, setSortingValues] = useState<SortingValue[]>(initialSortingValues)
   const [dataVersion, setDataVersion] = useState<number>(initialDataVersion)
 
@@ -83,6 +84,7 @@ function Main () {
       delete newValues[key]
     }
 
+    saveLocalData<LocalData['filters']>('dogs:filters', newValues)
     setFilterValues(newValues)
   }, [filterValues, setFilterValues])
 

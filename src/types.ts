@@ -201,9 +201,10 @@ export interface LocalData {
     [key: DogId]: DogProps
   }
   sorting: SortingValue[]
+  filters: FilterValues
 }
 
-export type LocalDataKeys = 'dogs:dataVersion' | 'dogs:dogs' | 'dogs:sorting'
+export type LocalDataKeys = 'dogs:dataVersion' | 'dogs:dogs' | 'dogs:sorting' | 'dogs:filters'
 
 export interface Filters {
   age: { value: LocalAge, count: number }[]
