@@ -22,6 +22,34 @@ body {
   }
 }
 
+.input {
+  position: relative;
+
+  input {
+    width: 100%;
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: var(--bs-gray-500);
+    height: 2em;
+    margin-top: -1em;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 2em;
+
+    &:hover {
+      color: var(--bs-dark-color);
+    }
+
+    line {
+      stroke-width: 4;
+    }
+  }
+}
+
 header {
   background: var(--bs-light);
   left: 0;
@@ -135,7 +163,7 @@ header {
     }
 
     label,
-    input,
+    .input,
     .select {
       margin: 0.3em;
     }

@@ -4,7 +4,8 @@ import React, { ChangeEvent, useMemo } from 'react'
 import Select, { OnChangeValue } from 'react-select'
 import Accordion from 'react-bootstrap/Accordion'
 import { Filters as IFilters, FilterValues, SelectOption } from './types'
-import FilterIcon from '../assets/filter.svg?react'
+import { FilterIcon } from './Icons'
+import { Input } from './Input'
 
 type FilterKey = keyof IFilters
 type FilterValueKey = keyof FilterValues
@@ -108,7 +109,7 @@ export function Filters ({
           <ul className='list-group list-group-flush'>
             <li className='list-group-item'>
               <label htmlFor='dogName'>Name</label>
-              <input
+              <Input
                 name='dogName'
                 type='text'
                 value={filterValues.name || ''}

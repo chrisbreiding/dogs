@@ -1,10 +1,7 @@
 /// <reference types="vite-plugin-svgr/client" />
 
 import React, { MouseEvent } from 'react'
-import PawIcon from '../assets/paw.svg?react'
-import NewIcon from '../assets/new.svg?react'
-import HomeIcon from '../assets/home.svg?react'
-import RemoveIcon from '../assets/remove.svg?react'
+import { PawIcon, NewIcon, HomeIcon, RemoveIcon } from './Icons'
 import { Tooltip } from './Tooltip'
 import { FilterValues } from './types'
 

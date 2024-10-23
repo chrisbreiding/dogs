@@ -4,17 +4,19 @@ import React, { useCallback } from 'react'
 import cs from 'clsx'
 import { DogModel } from './DogModel'
 import { DogUpdate } from './types'
-import CalendarIcon from '../assets/calendar.svg?react'
-import FemaleIcon from '../assets/female.svg?react'
-import HeartIcon from '../assets/heart.svg?react'
-import HomeIcon from '../assets/home.svg?react'
-import MaleIcon from '../assets/male.svg?react'
-import NewIcon from '../assets/new.svg?react'
-import NewWindowIcon from '../assets/new-window.svg?react'
-import PawIcon from '../assets/paw.svg?react'
-import RemoveIcon from '../assets/remove.svg?react'
-import ScaleIcon from '../assets/scale.svg?react'
-import HourglassIcon from '../assets/hourglass.svg?react'
+import {
+  CalendarIcon,
+  FemaleIcon,
+  HeartIcon,
+  HomeIcon,
+  HourglassIcon,
+  MaleIcon,
+  NewIcon,
+  NewWindowIcon,
+  PawIcon,
+  RemoveIcon,
+  ScaleIcon,
+} from './Icons'
 import { unknownValue } from './constants'
 import { Tooltip } from './Tooltip'
 

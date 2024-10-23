@@ -4,8 +4,7 @@ import React, { useCallback, useMemo } from 'react'
 import Accordion from 'react-bootstrap/Accordion'
 import Select, { OnChangeValue } from 'react-select'
 import { SelectOption, SortingValue } from './types'
-import RemoveIcon from '../assets/remove.svg?react'
-import SortingIcon from '../assets/sorting.svg?react'
+import { RemoveIcon, SortingIcon } from './Icons'
 
 interface SortingOption {
   label: string
