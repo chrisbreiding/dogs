@@ -265,14 +265,12 @@ header {
       aspect-ratio: 1 / 1;
     }
 
-    .mark-seen-button,
-    .toggle-favorite-button {
+    .mark-seen-button {
       display: none;
     }
 
     &.dog-is-available {
-      &.dog-is-new .mark-seen-button,
-      .toggle-favorite-button {
+      &.dog-is-new .mark-seen-button {
         display: block;
       }
 
@@ -293,8 +291,8 @@ header {
     .mark-seen-button {
       background: none;
       display: none;
-      left: 0.3em;
       padding: 0;
+      right: 0.3em;
       width: 2.9em;
       height: 2.9em;
 
@@ -303,19 +301,19 @@ header {
       }
     }
 
-    &.dog-is-new .mark-seen-button {
+    &.dog-is-new.dog-is-available .mark-seen-button {
       display: block;
     }
 
     .toggle-favorite-button,
     .remove-button {
-      right: 0.3em;
       width: 2.5em;
       height: 2.5em;
     }
 
     .toggle-favorite-button {
       background: rgba(255, 255, 255, 0.7);
+      left: 0.3em;
       padding: 0.4em;
 
       &:hover {
@@ -346,6 +344,7 @@ header {
 
     .remove-button {
       padding: 0.2em;
+      right: 0.3em;
 
       svg {
         stroke-width: 2;
