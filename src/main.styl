@@ -232,14 +232,9 @@ header {
 
   .dog-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     padding: 0 0.5em 1em;
-    width: 100%;
-
-    @media all and (min-width: 31em) {
-      justify-content: start;
-      width: 50%;
-    }
+    width: 50%;
 
     @media all and (min-width: 46.5em) {
       width: calc(100% / 3);
@@ -257,7 +252,6 @@ header {
   .card {
     display: flex;
     flex-grow: 2;
-    min-width: 14em;
     max-width: 23em;
     position: relative;
 
