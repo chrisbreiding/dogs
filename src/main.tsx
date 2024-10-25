@@ -1,19 +1,22 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@cypress/react-tooltip/dist/tooltip.css'
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import { defaultSortingValues } from './constants'
-import { clone, deriveFilters, filterAndSortDogs, getDogs, getPhotosForUnavailableDogs } from './data'
+import { deriveFilters, getDogs, getPhotosForUnavailableDogs } from './data'
 import { DogModel } from './DogModel'
 import { Dogs } from './Dogs'
 import { Filters } from './Filters'
 import { fetchLocalData, saveLocalData } from './local-data'
 import { latestDataVersion, migrateData } from './migrations'
 import { fetchRemoteDogs } from './remote-data'
-import { Sorting, SortingOptionUpdate } from './Sorting'
+import { Sorting } from './Sorting'
 import { Stats } from './Stats'
-import { DogUpdate, FilterValues, Filters as IFilters, LocalData, MultiFilterValues, RemoteDog, SingleFilterValues, SortingValue } from './types'
+import { FilterValues, Filters as IFilters, LocalData, RemoteDog, SortingValue } from './types'
+import { useAppliedFiltersCount, useReplaceFilter, useUpdateFilter } from './hooks/filters'
+import { useAddSortingOption, useDeleteSortingOption, useUpdateSortingOption } from './hooks/sorting'
+import { useFilteredAndSortedDogs, useNewDogs, useRemoveDog, useUnavailableDogs, useUpdateDog } from './hooks/dogs'
 
 const initialSortingValues = fetchLocalData<LocalData['sorting']>('dogs:sorting') || defaultSortingValues
 const initialDataVersion = fetchLocalData<LocalData['dataVersion']>('dogs:dataVersion') || 0
@@ -71,124 +74,21 @@ function Main () {
     })()
   }, [true])
 
-  const onUpdateFilter = useCallback((key: keyof FilterValues, value: string | string[] | boolean | undefined) => {
-    const newValues = clone<FilterValues>(filterValues)
+  const onReplaceFilter = useReplaceFilter(setFilterValues)
+  const onUpdateFilter = useUpdateFilter(filterValues, setFilterValues)
+  const onClearFilters = onReplaceFilter.bind(null, {})
 
-    if (value !== undefined && value !== '') {
-      if (typeof value === 'string') {
-        newValues[key as SingleFilterValues] = value as string
-      } else {
-        newValues[key as MultiFilterValues] = value as string[]
-      }
-    } else {
-      delete newValues[key]
-    }
+  const onAddSortingOption = useAddSortingOption(sortingValues, setSortingValues)
+  const onUpdateSortingOption = useUpdateSortingOption(sortingValues, setSortingValues)
+  const onDeleteSortingOption = useDeleteSortingOption(sortingValues, setSortingValues)
 
-    saveLocalData<LocalData['filters']>('dogs:filters', newValues)
-    setFilterValues(newValues)
-  }, [filterValues, setFilterValues])
+  const onRemoveDog = useRemoveDog(localDogs, setLocalDogs)
+  const onUpdateDog = useUpdateDog(dogs, localDogs, setLocalDogs)
 
-  const onReplaceFilter = useCallback((key: keyof FilterValues, value: string) => {
-    setFilterValues({ [key]: value })
-  }, [onUpdateFilter])
-
-  const onAddSortingOption = useCallback((value: SortingValue) => {
-    const newValues = [
-      ...sortingValues,
-      value,
-    ]
-
-    saveLocalData<LocalData['sorting']>('dogs:sorting', newValues)
-    setSortingValues(newValues)
-  }, [sortingValues, setSortingValues])
-
-  const onDeleteSortingOption = useCallback((key: SortingValue['key']) => {
-    const clonedValues = clone<LocalData['sorting']>(sortingValues)
-
-    const deleteIndex = clonedValues.findIndex((value) => {
-      return value.key === key
-    })
-
-    const newValues = [
-      ...clonedValues.slice(0, deleteIndex),
-      ...clonedValues.slice(deleteIndex + 1),
-    ]
-
-    saveLocalData<LocalData['sorting']>('dogs:sorting', newValues)
-    setSortingValues(newValues)
-  }, [sortingValues, setSortingValues])
-
-  const onUpdateSortingOption = useCallback(({ prevValue, updatedValue }: SortingOptionUpdate) => {
-    const clonedValues = clone<LocalData['sorting']>(sortingValues)
-    const updateIndex = clonedValues.findIndex((value) => value.key === prevValue.key)
-    const newValues = [
-      ...sortingValues.slice(0, updateIndex),
-      updatedValue,
-      ...sortingValues.slice(updateIndex + 1),
-    ]
-
-    saveLocalData<LocalData['sorting']>('dogs:sorting', newValues)
-    setSortingValues(newValues)
-  }, [sortingValues, setSortingValues])
-
-  const onRemoveDog = useCallback((id: string) => {
-    if (!localDogs) return
-
-    const newValues = clone<LocalData['dogs']>(localDogs)
-
-    delete newValues[id]
-
-    saveLocalData<LocalData['dogs']>('dogs:dogs', newValues)
-    setLocalDogs(newValues)
-  }, [localDogs, setLocalDogs])
-
-  const onUpdateDog = useCallback((update: DogUpdate) => {
-    if (!localDogs || !dogs) return
-
-    const dog = dogs.find((dog) => update.id === dog.id)
-
-    if (!dog) return
-
-    const newValues = clone<LocalData['dogs']>(localDogs)
-    const newDog = dog.serialize()
-
-    if (update.isNew !== undefined) {
-      newDog.isNew = update.isNew
-      newValues[update.id] = newDog
-    }
-
-    if (update.isFavorite !== undefined) {
-      newDog.isFavorite = update.isFavorite
-      newValues[update.id] = newDog
-    }
-
-    saveLocalData<LocalData['dogs']>('dogs:dogs', newValues)
-    setLocalDogs(newValues)
-  }, [dogs, localDogs, setLocalDogs])
-
-  const appliedFiltersCount = useMemo(() => {
-    return Object.keys(filterValues).length
-  }, [filterValues])
-
-  const onClearFilters = useCallback(() => {
-    setFilterValues({})
-  }, [onUpdateFilter])
-
-  const filteredAndSortedDogs = useMemo(() => {
-    return filterAndSortDogs(dogs || [], filterValues, sortingValues)
-  }, [dogs, filterValues, sortingValues])
-
-  const newDogs = useMemo(() => {
-    if (!dogs) return []
-
-    return dogs.filter((dog) => dog.isNew)
-  }, [dogs])
-
-  const unavailableDogs = useMemo(() => {
-    if (!dogs) return []
-
-    return dogs.filter((dog) => !dog.isAvailable)
-  }, [dogs])
+  const appliedFiltersCount = useAppliedFiltersCount(filterValues)
+  const filteredAndSortedDogs = useFilteredAndSortedDogs(dogs, filterValues, sortingValues)
+  const newDogs = useNewDogs(dogs)
+  const unavailableDogs = useUnavailableDogs(dogs)
 
   if (isLoading) {
     return (

@@ -10,7 +10,7 @@ interface StatsOptions {
   dogsShowingCount: number
   newCount: number
   onClearFilters: () => void
-  onReplaceFilter: (key: keyof FilterValues, value: string) => void
+  onReplaceFilter: (replaceValues: FilterValues) => void
   totalDogsCount: number
   unavailableDogsCount: number
 }
@@ -27,7 +27,7 @@ export function Stats ({
   const onFilter = (key: keyof FilterValues, value: string) => (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
 
-    onReplaceFilter(key, value)
+    onReplaceFilter({ [key]: value })
   }
 
   const filtersText = appliedFiltersCount === 1 ? 'filter' : 'filters'
