@@ -11,10 +11,15 @@ const BASE_URL = localStorage.apiUrl
     ? `http://${location.hostname}:3333`
     : 'https://proxy.crbapps.com'
 
-async function makeRequest<T> (path: string): Promise<T> {
+async function makeRequest<T> (path: string): Promise<T | ErrorResponse> {
   const res = await fetch(`${BASE_URL}/${path}`)
+  const data = await res.json()
 
-  return res.json()
+  if (res.ok && typeof data === 'object') {
+    return data
+  }
+
+  return { error: data } as ErrorResponse
 }
 
 export async function fetchRemoteDogs () {
