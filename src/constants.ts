@@ -19,6 +19,8 @@ export const agesMap = {
 export const unknownValue = '(unknown)'
 
 export const weights = [
+  '<10',
+  '10 - 20 lbs',
   '< 20 lbs',
   '20 - 50 lbs',
   '> 50 lbs',
