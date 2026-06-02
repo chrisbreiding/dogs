@@ -122,7 +122,7 @@ function Dog ({ dog, onRemoveDog, onUpdateDog }: DogOptions) {
         <div className='spacer' />
         <div className='d-grid'>
           <a
-            href={`https://homeatlastdogrescue.com/dog/${dog.id}`}
+            href={`https://dogs.homeatlastdogrescue.com/dog/${dog.id}`}
             className='btn btn-secondary'
             target='_blank'
             rel='noreferrer'
